@@ -3,9 +3,9 @@ import { BsArrowUpRight } from "react-icons/bs";
 import Star from "../assets/Star.png";
 import Logo from "../assets/icons/Logo.svg";
 
-const ReportCard = () => {
+const ReportCardStar = () => {
   return (
-    <div className="relative max-w-xs bg-[#8B572A] text-white rounded-[24px] p-5 overflow-hidden flex flex-col justify-between h-[500px]">
+    <div className="relative w-1/3 bg-[#8B572A] text-white rounded-[24px] p-5 overflow-hidden flex flex-col justify-between h-[450px]">
       {/* Title and Description */}
       <div>
         <h2 className="text-yellow-400 text-lg font-semibold mb-2">
@@ -27,11 +27,9 @@ const ReportCard = () => {
           <BsArrowUpRight />
         </button>
       </div>
-
-      {/* Asterisk-style Star SVG */}
       <img src={Star} className="absolute bottom-0 right-0 z-0" />
     </div>
   );
 };
 
-export default ReportCard;
+export default ReportCardStar;

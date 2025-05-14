@@ -20,8 +20,7 @@ export default {
       },
       fontFamily: {
         clash: ["Clash Grotesk", "sans-serif"],
-        rage: ["Rage Italic", "sans-serif"],
-        abel: ["Abel", "sans-serif"],
+        workSans: ["Work Sans", "sans-serif"],
       },
       boxShadow: {
         allSide: "0 0 10px 5px rgba(0, 0, 0, 0.5)", // Example custom shadow
