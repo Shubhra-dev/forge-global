@@ -1,5 +1,5 @@
 import { BsArrowUpRight } from "react-icons/bs";
-import BlogGraph from "../assets/BlogGraph.png";
+import BlogGraph from "../assets/BlogGraph.jpg";
 import ExtraSmallText from "../components/ExtraSmallText";
 import SmallHeading from "../components/SmallHeading";
 

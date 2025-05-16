@@ -1,4 +1,4 @@
-function Text({
+function SmallText({
   children,
   textColor,
   textColorDark,
@@ -22,4 +22,4 @@ function Text({
     </p>
   );
 }
-export default Text;
+export default SmallText;

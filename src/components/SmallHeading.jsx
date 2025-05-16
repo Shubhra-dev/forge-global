@@ -13,8 +13,8 @@ function SmallHeading({
       className={`text-lg sm:text-xl ${fontWeight ? fontWeight : "font-medium"} ${
         font ? font : "font-workSans"
       } ${leading ? leading : "leading-relaxed tab:leading-7"} ${
-        textColor ? textColor : "text-textHeading"
-      } ${textColorDark ? { textColorDark } : "dark:text-textHeadingDark"} ${
+        textColor ? textColor : "text-textSubTitle"
+      } ${textColorDark ? { textColorDark } : "dark:text-textSubTitleDark"} ${
         align ? align : "text-left"
       } ${extraClass ? extraClass : ""}`}
     >

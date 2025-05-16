@@ -5,6 +5,7 @@ function SubTitle({
   leading,
   align,
   font,
+  extraClass,
 }) {
   return (
     <h3
@@ -14,7 +15,7 @@ function SubTitle({
         textColor ? textColor : "text-textHeading"
       } ${textColorDark ? { textColorDark } : "dark:text-textHeadingDark"} ${
         align ? align : "text-left"
-      }`}
+      } ${extraClass ? extraClass : ""}`}
     >
       {children}
     </h3>

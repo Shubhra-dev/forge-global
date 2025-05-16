@@ -8,6 +8,9 @@ import ReportCardGeneral from "./components/ReportCardGeneral";
 import PhotoWithBg from "./components/PhotoWithBg";
 import PhotoWithBgReverse from "./components/PhotoWithBgReverse";
 import CompanyCards from "./components/CompanyCards";
+import PhotoCardWithButton from "./components/PhotoCardWithButton";
+import ImageBoxTopCornerRounded from "./components/ImageBoxTopCornerRounded";
+import IconBox1 from "./components/IconBox1";
 
 const App = () => {
   const theme = useSelector((state) => state.theme.mode);
@@ -37,8 +40,13 @@ const App = () => {
         <PhotoWithBg />
       </div>
       <PhotoWithBgReverse />
-      <div className="mt-4">
+      <div className="my-4 flex gap-2 items-start">
         <CompanyCards />
+        <PhotoCardWithButton />
+      </div>
+      <div className="w-5/6 m-auto">
+        <ImageBoxTopCornerRounded />
+        <IconBox1 />
       </div>
     </div>
   );

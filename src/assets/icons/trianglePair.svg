@@ -1,0 +1,11 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="triangle pair" clip-path="url(#clip0_229_19015)">
+<path id="Vector" d="M22.6017 48L46.6017 24L22.6017 -2.09815e-06L-1.10625e-05 -4.07406e-06L-1.52588e-05 48L22.6017 48Z" fill="#815222"/>
+<path id="Vector_2" d="M0 48L24 24L4.19629e-06 -2.09815e-06L0 48Z" fill="#EFBF04"/>
+</g>
+<defs>
+<clipPath id="clip0_229_19015">
+<rect width="48" height="48" fill="white" transform="translate(48 48) rotate(-180)"/>
+</clipPath>
+</defs>
+</svg>

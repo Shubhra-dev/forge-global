@@ -1,0 +1,24 @@
+function ArrowUpRight() {
+  return (
+    <svg
+      width="49"
+      height="49"
+      viewBox="0 0 49 49"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="Arrow up-right">
+        <path
+          id="Icon"
+          d="M14.5 34.5L34.5 14.5M34.5 14.5H14.5M34.5 14.5V34.5"
+          stroke="#22252B"
+          stroke-width="5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+    </svg>
+  );
+}
+
+export default ArrowUpRight;
