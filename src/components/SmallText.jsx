@@ -14,7 +14,7 @@ function SmallText({
         font ? font : "font-workSans"
       } ${leading ? leading : " leading-tight"} ${
         textColor ? textColor : "text-textParagraph"
-      } ${textColorDark ? { textColorDark } : "dark:text-textParagraphDark"} ${
+      } ${textColorDark ? `dark:${textColorDark}` : "dark:text-textParagraphDark"} ${
         align ? align : "text-left"
       } ${extraClass ? extraClass : ""}`}
     >

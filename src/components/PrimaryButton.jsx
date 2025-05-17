@@ -5,10 +5,14 @@ function PrimaryButton({ children, onClick, type, icon }) {
     <button
       onClick={onClick ? onClick : () => {}}
       type={type ? type : "button"}
-      className="py-3 px-6 flex justify-center items-center gap-2 bg-primary text-white rounded-full"
+      className="group py-3 px-6 flex justify-center items-center gap-2 bg-primary text-white hover:bg-secondary2  duration-300 ease-in-out rounded-full"
     >
-      <p className="text-base font-medium leading-normal">{children}</p>
-      {icon && <RiArrowRightDownLine className="text-white text-xl" />}
+      <p className="group-hover:text-textHeading text-base font-medium leading-normal">
+        {children}
+      </p>
+      {icon && (
+        <RiArrowRightDownLine className="text-white text-xl group-hover:text-textHeading" />
+      )}
     </button>
   );
 }

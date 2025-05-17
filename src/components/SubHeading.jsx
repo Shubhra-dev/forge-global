@@ -6,6 +6,7 @@ function SubHeading({
   font,
   fontWeight,
   children,
+  extraClass,
 }) {
   return (
     <h2
@@ -15,7 +16,7 @@ function SubHeading({
         leading ? leading : "leading-7 sm:leading-loose"
       } ${textColor ? textColor : "text-textSubheading"} ${
         textColorDark ? { textColorDark } : "dark:text-textSubheadingDark"
-      } ${align ? align : "text-left"}`}
+      } ${align ? align : "text-left"} ${extraClass ? extraClass : ""}`}
     >
       {children}
     </h2>

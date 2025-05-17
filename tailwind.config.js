@@ -17,8 +17,12 @@ export default {
         textParagraphDark: "#8790A1",
         backgroundTertiary: "#22252B",
         backgroundDark: "#000000",
+        backgroundPrimary: "#F6F5F2",
+        backgroundPrimaryDark: "#1C1C1A",
         backgroundBronze: "#ECD1B6",
         backgroundBronzeDark: "#815222",
+        backgroundBronzeLight: "#F5E8DB",
+        backgroundBronzeLightDark: "#593818",
         backgroundCream: "#F6F5F2",
         backgroundCreamDark: "#1C1C1A",
         borderPrimary: "#A4AAB7",
@@ -36,7 +40,7 @@ export default {
         content: "1750px", // perfect for readable text
       },
       screens: {
-        tab: "770px",
+        tab: "769px",
         smLap: "1025px",
         laptop: "1285px",
         content: "1750px",

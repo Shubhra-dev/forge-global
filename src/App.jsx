@@ -11,6 +11,11 @@ import CompanyCards from "./components/CompanyCards";
 import PhotoCardWithButton from "./components/PhotoCardWithButton";
 import ImageBoxTopCornerRounded from "./components/ImageBoxTopCornerRounded";
 import IconBox1 from "./components/IconBox1";
+import TextCardWithSeperator from "./components/TextCardWithSeperator";
+import PrivateMarketPanel from "./components/PrivateMarketPanel";
+import PrivateMarketAccordion from "./components/PrivateMarketAccordion";
+import IconBox2 from "./components/IconBox2";
+import ForgeInvestmentOutLookCard from "./components/ForgeInvestmentOutLookCard";
 
 const App = () => {
   const theme = useSelector((state) => state.theme.mode);
@@ -33,7 +38,7 @@ const App = () => {
       <div className="pt-2"></div>
       <PrimaryButton icon={true}> Button </PrimaryButton>
       <div className="pt-2"></div>
-      <SecondaryButton icon={true}> Button </SecondaryButton>
+      <SecondaryButton iconUp={true}>Button</SecondaryButton>
       <div className="flex items-center gap-6">
         <ReportCardStar />
         <ReportCardGeneral />
@@ -44,10 +49,19 @@ const App = () => {
         <CompanyCards />
         <PhotoCardWithButton />
       </div>
-      <div className="w-5/6 m-auto">
+      <div className=" flex items-center gap-3 w-5/6 m-auto">
         <ImageBoxTopCornerRounded />
-        <IconBox1 />
+        <TextCardWithSeperator />
+        <IconBox2 />
       </div>
+      <IconBox1 />
+      <div className=" flex items-center gap-3 w-5/6 m-auto my-3">
+        <PrivateMarketPanel />
+      </div>
+      <div className=" flex items-center gap-3 w-5/6 m-auto my-3">
+        <ForgeInvestmentOutLookCard />
+      </div>
+      <PrivateMarketAccordion />
     </div>
   );
 };

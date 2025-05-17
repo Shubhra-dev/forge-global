@@ -9,17 +9,17 @@ function Text({
   extraClass,
 }) {
   return (
-    <h1
+    <p
       className={`text-base ${fontWeight ? fontWeight : "font-normal"} ${
         font ? font : "font-workSans"
       } ${leading ? leading : " leading-normal"} ${
         textColor ? textColor : "text-textParagraph"
-      } ${textColorDark ? { textColorDark } : "dark:text-textParagraphDark"} ${
+      } ${textColorDark ? `dark:${textColorDark}` : "dark:text-textParagraphDark"} ${
         align ? align : "text-left"
       } ${extraClass ? extraClass : ""}`}
     >
       {children}
-    </h1>
+    </p>
   );
 }
 export default Text;
