@@ -6,6 +6,7 @@ function BigText({
   font,
   fontWeight,
   children,
+  extraClass,
 }) {
   return (
     <h6
@@ -15,7 +16,7 @@ function BigText({
         leading ? leading : " leading-relaxed tab:leading-7"
       } ${textColor ? textColor : "text-textSubheading"} ${
         textColorDark ? { textColorDark } : "dark:text-textSubheadingDark"
-      } ${align ? align : "text-left"}`}
+      } ${align ? align : "text-left"} ${extraClass ? extraClass : ""}`}
     >
       {children}
     </h6>

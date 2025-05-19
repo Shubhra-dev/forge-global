@@ -3,6 +3,7 @@ import Home from "./pages/home/Home";
 import Applayout from "./ui/AppLayout";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import IndividualInvestors from "./pages/individual-investor/IndividualInvestors";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/individual-investors",
+        element: <IndividualInvestors />,
       },
     ],
   },
