@@ -14,7 +14,7 @@ function SmallHeading({
         font ? font : "font-workSans"
       } ${leading ? leading : "leading-relaxed tab:leading-7"} ${
         textColor ? textColor : "text-textSubTitle"
-      } ${textColorDark ? { textColorDark } : "dark:text-textSubTitleDark"} ${
+      } ${textColorDark ? `dark:${textColorDark}` : "dark:text-textSubTitleDark"} ${
         align ? align : "text-left"
       } ${extraClass ? extraClass : ""}`}
     >

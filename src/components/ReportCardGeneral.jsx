@@ -5,7 +5,7 @@ import SmallHeading from "../components/SmallHeading";
 
 const ReportCardGeneral = () => {
   return (
-    <div className="relative w-1/3 bg-white shadow-xl dark:shadow-none dark:bg-backgroundDark text-white rounded-[24px] p-5 overflow-hidden flex flex-col justify-between h-[450px]">
+    <div className="relative w-full sm:w-[48%] tab:w-1/3 bg-white shadow-borderPrimary/20 shadow-allSide dark:shadow-none dark:bg-backgroundDark text-white rounded-[24px] p-5 overflow-hidden flex flex-col justify-between h-[400px] sm:h-[500px]">
       {/* Title and Description */}
       <div className="h-[80%]">
         <div className="h-[60%] w-full">

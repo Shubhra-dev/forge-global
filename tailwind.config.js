@@ -15,6 +15,7 @@ export default {
         textSubTitleDark: "#FFFFFF",
         textParagraph: "#535B6A",
         textParagraphDark: "#8790A1",
+        backgroundTertiaryLight: "#E0E2E6",
         backgroundTertiary: "#22252B",
         backgroundDark: "#000000",
         backgroundPrimary: "#F6F5F2",
@@ -27,6 +28,7 @@ export default {
         backgroundCreamDark: "#1C1C1A",
         borderPrimary: "#A4AAB7",
         borderPrimaryDark: "#535B6A",
+        backgroundDarkGeneral: "#121212",
       },
       fontFamily: {
         clash: ["Clash Grotesk", "sans-serif"],

@@ -3,7 +3,7 @@ import SmallHeading from "./SmallHeading";
 import SmallText from "./SmallText";
 function CompanyCards() {
   return (
-    <div className="w-1/4 p-[15px] bg-white dark:bg-backgroundDark border border-borderPrimary">
+    <div className="w-full sm:w-auto p-[15px] bg-white dark:bg-backgroundDark border border-borderPrimary">
       <div className="w-full flex items-center justify-normal gap-3">
         <img src={Company1} alt="company logo" />
         <div className="mb-3">

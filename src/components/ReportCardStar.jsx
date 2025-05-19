@@ -5,7 +5,7 @@ import Logo from "../assets/icons/Logo.svg";
 
 const ReportCardStar = () => {
   return (
-    <div className="relative w-1/3 bg-[#8B572A] text-white rounded-[24px] p-5 overflow-hidden flex flex-col justify-between h-[450px]">
+    <div className="relative w-full sm:w-[48%] tab:w-1/3 bg-backgroundBronzeDark text-white rounded-[24px] p-5 overflow-hidden flex flex-col justify-between h-[400px] sm:h-[500px]">
       {/* Title and Description */}
       <div>
         <h2 className="text-yellow-400 text-lg font-semibold mb-2">
