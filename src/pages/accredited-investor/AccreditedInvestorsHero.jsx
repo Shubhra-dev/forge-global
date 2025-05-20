@@ -2,7 +2,7 @@ import IndInvHeroBg from "../../assets/IndInvHeroBg.jpg";
 import BigText from "../../components/BigText";
 import PrimaryButton from "../../components/PrimaryButton";
 import Title from "../../components/Title";
-function IndividualInvestors() {
+function AccreditedInvestorsHero() {
   return (
     <div
       className="pt-[65px] h-[600px] sm:h-[550px] w-full bg-cover bg-center bg-no-repeat flex items-center"
@@ -34,4 +34,4 @@ function IndividualInvestors() {
   );
 }
 
-export default IndividualInvestors;
+export default AccreditedInvestorsHero;

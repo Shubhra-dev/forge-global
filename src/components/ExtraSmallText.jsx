@@ -6,6 +6,7 @@ function ExtraSmallText({
   align,
   font,
   fontWeight,
+  extraClass,
 }) {
   return (
     <p
@@ -15,7 +16,7 @@ function ExtraSmallText({
         textColor ? textColor : "text-textParagraph"
       } ${textColorDark ? { textColorDark } : "dark:text-textParagraphDark"} ${
         align ? align : "text-left"
-      }`}
+      } ${extraClass ? extraClass : ""}`}
     >
       {children}
     </p>

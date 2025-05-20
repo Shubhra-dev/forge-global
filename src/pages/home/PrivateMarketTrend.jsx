@@ -4,7 +4,10 @@ import ReportCardGeneral from "../../components/ReportCardGeneral";
 import ReportCardStar from "../../components/ReportCardStar";
 function PrivateMarketTrend() {
   return (
-    <SectionLayout>
+    <SectionLayout
+      bg={`bg-backgroundPrimary`}
+      bgDark={`dark:bg-backgroundPrimaryDark`}
+    >
       <div className="w-full pb-[30px]">
         <Heading
           align={`text-center sm:text-left`}
