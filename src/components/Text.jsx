@@ -7,9 +7,11 @@ function Text({
   font,
   fontWeight,
   extraClass,
+  onClick,
 }) {
   return (
     <p
+      onClick={onClick ? onClick : () => {}}
       className={`text-base ${fontWeight ? fontWeight : "font-normal"} ${
         font ? font : "font-workSans"
       } ${leading ? leading : " leading-normal"} ${

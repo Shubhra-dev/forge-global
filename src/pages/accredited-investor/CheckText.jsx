@@ -6,7 +6,7 @@ function CheckText({ padding, text }) {
     <div
       className={`w-full flex items-start justify-start gap-2 ${padding ? padding : "pb-2.5"}`}
     >
-      <BiCheck className="text-3xl w-[5%] text-left" />
+      <BiCheck className="text-3xl w-[5%] text-left dark:text-textSubTitleDark" />
       <SmallHeading align={`text-left`} extraClass={`w-[95%]`}>
         {text}
       </SmallHeading>
