@@ -8,10 +8,7 @@ import Text from "../../components/Text";
 import BigText from "../../components/BigText";
 function HowSellPreIPO() {
   return (
-    <SectionLayout
-      bg={`bg-backgroundCream`}
-      bgDark={`dark:bg-backgroundCreamDark`}
-    >
+    <SectionLayout>
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
         <div className="w-full sm:w-[40%]">
           <PhotoWithBgReverse image={Man2} />

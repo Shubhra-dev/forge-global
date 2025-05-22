@@ -6,9 +6,10 @@ import ExtraSmallText from "../components/ExtraSmallText";
 function NewsletterAndDisclosure({
   newsletter = true,
   disclosureDetail = false,
+  disclosurelist = true,
 }) {
   return (
-    <SectionLayout>
+    <SectionLayout bg={`bg-gray-50`} bgDark={`dark:bg-backgroundDark/90`}>
       <>
         {newsletter && (
           <div className="flex flex-col tab:flex-row items-center justify-center gap-5 w-max max-w-full m-auto">
@@ -80,58 +81,66 @@ function NewsletterAndDisclosure({
               brokerage services.
             </p>
           )}
-          <ExtraSmallText extraClass={`uppercase`}>
-            please read these important legal notices and disclosure
-          </ExtraSmallText>
-          <ul className="text-[10px] text-textParagraph dark:text-textParagraphDark list-decimal list-inside py-1 space-y-1">
-            <li>
-              Forge Price™ is a custom data-point calculated and disseminated
-              by Forge Data LLC (“Forge Data”) and is a mark of Forge Data.
-              Forge Price may rely on a very limited number of inputs in its
-              calculation. Forge Price is prepared and disseminated solely for
-              informational purposes. Redistribution is permitted solely with
-              Forge’s written consent. While Forge has obtained information from
-              sources it believes to be reliable, Forge does not perform an
-              audit or undertake any duty of due diligence or independent
-              verification of any information it receives. Forge does not
-              guarantee the accuracy, completeness, timeliness, or availability
-              of Forge Price, and are not responsible for any errors or
-              omissions, regardless of the cause, or any results obtained from
-              the use of Forge Price. Forge Price is derived from secondary
-              activity on the Forge platform and other private market trading
-              platforms, and other publicly-available datapoints collected by
-              Forge. Forge Price is not intended to, and does not necessarily,
-              represent the market price of any securities (I.e., the price at
-              which you could buy or sell such securities). Neither reference to
-              company names, nor calculation of Forge Price for a specific
-              company, implies any affiliation between Forge and that company,
-              any endorsement or sponsorship by Forge of any company or vice
-              versa, or any partnership, joint venture or other commercial
-              relationship between Forge and any company. Rights with respect to
-              any company marks referred to herein are owned by the company. The
-              dollar-figure and percentage displayed indicates the per share
-              change in dollar amount and percentage since the most recent Forge
-              Price change. Percentages are rounded to the nearest whole number.
-            </li>
-            <li>
-              The Last Closed Trade price displayed reflects the price at which
-              the last trade in this company's security occurred on Forge, and
-              can include secondary trades in any class of the company's
-              security, or trades in units of funds holding the company's
-              securities (the economics of which differ versus direct company
-              ownership). The date displayed reflects the date on which the last
-              trade in this company's security closed on Forge. This may be
-              several weeks after the terms of the trade were agreed upon
-              between the buyer and seller. In case of multiple trades closed on
-              the same date, the price displayed is of either (i) the trade
-              which terms were agreed upon most recently; or (ii) the trade with
-              the higher notional value.
-            </li>
-            <li>
-              Post-Money Valuation represents the estimated valuation based on
-              company-submitted Certificates of Incorporations (COIs).
-            </li>
-          </ul>
+          {disclosurelist && (
+            <>
+              <ExtraSmallText extraClass={`uppercase`}>
+                please read these important legal notices and disclosure
+              </ExtraSmallText>
+              <ul className="text-[10px] text-textParagraph dark:text-textParagraphDark list-decimal list-inside py-1 space-y-1">
+                <li>
+                  Forge Price™ is a custom data-point calculated and
+                  disseminated by Forge Data LLC (“Forge Data”) and is a mark of
+                  Forge Data. Forge Price may rely on a very limited number of
+                  inputs in its calculation. Forge Price is prepared and
+                  disseminated solely for informational purposes. Redistribution
+                  is permitted solely with Forge’s written consent. While Forge
+                  has obtained information from sources it believes to be
+                  reliable, Forge does not perform an audit or undertake any
+                  duty of due diligence or independent verification of any
+                  information it receives. Forge does not guarantee the
+                  accuracy, completeness, timeliness, or availability of Forge
+                  Price, and are not responsible for any errors or omissions,
+                  regardless of the cause, or any results obtained from the use
+                  of Forge Price. Forge Price is derived from secondary activity
+                  on the Forge platform and other private market trading
+                  platforms, and other publicly-available datapoints collected
+                  by Forge. Forge Price is not intended to, and does not
+                  necessarily, represent the market price of any securities
+                  (I.e., the price at which you could buy or sell such
+                  securities). Neither reference to company names, nor
+                  calculation of Forge Price for a specific company, implies any
+                  affiliation between Forge and that company, any endorsement or
+                  sponsorship by Forge of any company or vice versa, or any
+                  partnership, joint venture or other commercial relationship
+                  between Forge and any company. Rights with respect to any
+                  company marks referred to herein are owned by the company. The
+                  dollar-figure and percentage displayed indicates the per share
+                  change in dollar amount and percentage since the most recent
+                  Forge Price change. Percentages are rounded to the nearest
+                  whole number.
+                </li>
+                <li>
+                  The Last Closed Trade price displayed reflects the price at
+                  which the last trade in this company's security occurred on
+                  Forge, and can include secondary trades in any class of the
+                  company's security, or trades in units of funds holding the
+                  company's securities (the economics of which differ versus
+                  direct company ownership). The date displayed reflects the
+                  date on which the last trade in this company's security closed
+                  on Forge. This may be several weeks after the terms of the
+                  trade were agreed upon between the buyer and seller. In case
+                  of multiple trades closed on the same date, the price
+                  displayed is of either (i) the trade which terms were agreed
+                  upon most recently; or (ii) the trade with the higher notional
+                  value.
+                </li>
+                <li>
+                  Post-Money Valuation represents the estimated valuation based
+                  on company-submitted Certificates of Incorporations (COIs).
+                </li>
+              </ul>
+            </>
+          )}
         </div>
       </>
     </SectionLayout>

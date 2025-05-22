@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 import { toggleTheme } from "../features/theme/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
   const [isSticky, setIsSticky] = useState(false);
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme.mode);
@@ -30,19 +32,33 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="text-2xl font-bold text-orange-500">▌▐</div>
-            <span className="font-semibold text-lg">Investment</span>
+            <span
+              className="cursor-pointer font-semibold text-lg"
+              onClick={() => navigate("/")}
+            >
+              Investment
+            </span>
           </div>
 
           {/* Navigation */}
           <nav className="hidden tab:flex items-center gap-8 text-sm font-medium">
-            <a href="#" className="hover:underline">
-              Who We Serve ▾
+            <a
+              onClick={() => navigate("/accredited-investors")}
+              className="cursor-pointer"
+            >
+              Acc Inv ▾
             </a>
-            <a href="#" className="hover:underline">
-              What We Do ▾
+            <a
+              onClick={() => navigate("/seeds-and-angel-investors")}
+              className="cursor-pointer"
+            >
+              Seed & Angel ▾
             </a>
-            <a href="#" className="hover:underline">
-              Insights ▾
+            <a
+              onClick={() => navigate("/employee-shareholders")}
+              className="cursor-pointer"
+            >
+              Emp Share ▾
             </a>
             <a href="#" className="hover:underline">
               About ▾

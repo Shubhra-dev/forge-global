@@ -35,7 +35,7 @@ const faqs = [
   },
 ];
 
-export default function FAQSection() {
+export default function FAQSection({ title, subTitle }) {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -48,13 +48,15 @@ export default function FAQSection() {
         {/* Left Column */}
         <div className="w-full sm:w-[25%] tab:w-[30%]">
           <Heading align={`text-center sm:text-left`} font={`font-clash`}>
-            FAQs
+            {title ? title : "FAQs"}
           </Heading>
           <SmallHeading
             extraClass={`pt-4 pb-7`}
             align={`text-center sm:text-left`}
           >
-            Learn more about the private market on Forge. Explore the FAQs.
+            {subTitle
+              ? subTitle
+              : "Learn more about the private market on Forge. Explore the FAQs."}
           </SmallHeading>
           <div className={`w-max m-auto sm:m-0`}>
             <PrimaryButton>Contact</PrimaryButton>
@@ -65,17 +67,15 @@ export default function FAQSection() {
         <div className="w-full sm:w-[73%] tab:w-[65%] flex flex-col gap-4">
           {faqs.map((faq, index) => (
             <div
+              onClick={() => toggleFAQ(index)}
               key={index}
               className={`border-b border-borderPrimary dark:border-borderPrimaryDark transition-all duration-300 py-5 tab:py-7 px-4 tab:px-5 ${
                 activeIndex === index
-                  ? "bg-borderPrimary/10 dark:bg-borderPrimaryDark/10"
+                  ? "bg-backgroundPrimary dark:bg-backgroundPrimaryDark"
                   : ""
               }`}
             >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center py-4 text-left focus:outline-none"
-              >
+              <button className="w-full flex justify-between items-center py-4 text-left focus:outline-none">
                 <BigText>{faq.question}</BigText>
                 <span className="text-orange-400">
                   {activeIndex === index ? (
