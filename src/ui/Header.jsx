@@ -3,8 +3,10 @@ import { Sun, Moon } from "lucide-react";
 import { toggleTheme } from "../features/theme/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Header() {
+  const [activeIndex, setActiveIndex] = useState(1);
   const navigate = useNavigate();
   const [isSticky, setIsSticky] = useState(false);
   const dispatch = useDispatch();
@@ -47,6 +49,25 @@ export default function Header() {
               className="cursor-pointer"
             >
               Acc Inv ▾
+              {/* <AnimatePresence>
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full left-0 -translate-x-1/2 mt-2"
+                >
+                 
+                  <div className="flex justify-center">
+                    <div className="w-0 h-0 border-l-8 shadow-allSide border-r-8 border-b-8 border-transparent border-b-white"></div>
+                  </div>
+
+                
+                  <div className="bg-white shadow-allside shadow-gray-400 rounded-xl p-10 space-y-2">
+                    DropDown
+                  </div>
+                </motion.div>
+              </AnimatePresence> */}
             </a>
             <a
               onClick={() => navigate("/seeds-and-angel-investors")}
@@ -60,8 +81,11 @@ export default function Header() {
             >
               Emp Share ▾
             </a>
-            <a href="#" className="hover:underline">
-              About ▾
+            <a
+              onClick={() => navigate("/assets-manager")}
+              className="cursor-pointer"
+            >
+              Asset Mg. ▾
             </a>
           </nav>
 

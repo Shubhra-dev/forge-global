@@ -6,6 +6,10 @@ import { useEffect } from "react";
 import AccreditedInvestors from "./pages/accredited-investor/AccreditedInvestors";
 import SeedAndAngelInvestors from "./pages/seed-investors/SeedAndAngelInvestors";
 import EmployeeShareholders from "./pages/employee-shareholders/EmployeeShareholders";
+import AssetsManager from "./pages/assets-manger/AssetsManager";
+import FamilyOffices from "./pages/family-offices/FamilyOffices";
+import VentureCapitalFirms from "./pages/venture-capital-firms/VentureCapitalFirms";
+import WealthManagers from "./pages/wealth-managers/WealthManagers";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +31,22 @@ const router = createBrowserRouter([
       {
         path: "/employee-shareholders",
         element: <EmployeeShareholders />,
+      },
+      {
+        path: "/assets-manager",
+        element: <AssetsManager />,
+      },
+      {
+        path: "/family-offices",
+        element: <FamilyOffices />,
+      },
+      {
+        path: "/venture-capital-firms",
+        element: <VentureCapitalFirms />,
+      },
+      {
+        path: "/wealth-managers",
+        element: <WealthManagers />,
       },
     ],
   },
