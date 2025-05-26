@@ -1,24 +1,21 @@
-import TwoPeople from "../assets/TwoPeople.jpg";
 import ArrowUpRight from "../assets/icons/ArrowUpRight.svg";
 import SubTitle from "./SubTitle";
-import { RiArrowRightUpLine } from "react-icons/ri";
 import Text from "./Text";
 
-export default function ImageBoxTopCornerRounded() {
+export default function ImageBoxTopCornerRounded({ image, title, details }) {
   return (
-    <div className="w-1/2 h-[450px] p-8 flex flex-col justify-end rounded-3xl bg-backgroundCream dark:bg-backgroundCreamDark relative overflow-hidden">
+    <div className="w-full sm:w-[47%] tab:w-[48%] h-[450px] sm:h-[480px] tab:h-[480px] p-4 sm:p-6 tab:p-8 flex flex-col justify-end rounded-3xl bg-backgroundCream dark:bg-backgroundCreamDark relative overflow-hidden">
       <img
-        src={TwoPeople}
+        src={image}
         alt="people"
-        className="w-[350px] h-[350px] object-cover object-center -left-16 -top-20 absolute rounded-full outline outline-[30px] outline-backgroundBronze dark:outline-backgroundBronzeDark"
+        className="w-[300px] h-[300px] tab:w-[350px] tab:h-[350px] object-cover object-center -left-16 -top-20 absolute rounded-full outline outline-[30px] outline-backgroundBronze dark:outline-backgroundBronzeDark"
       />
       <div className="flex items-center justify-between gap-4 w-full">
         <div>
-          <SubTitle>Case study</SubTitle>
-          <Text>
-            How DocuSign used employee liquidity programs to stay private for 15
-            years and support talent along the way.
-          </Text>
+          <SubTitle leading={`leading-normal sm:leading-9 tab:leading-10`}>
+            {title}
+          </SubTitle>
+          <Text>{details}</Text>
         </div>
 
         <img

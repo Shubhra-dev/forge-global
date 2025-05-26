@@ -42,7 +42,7 @@ export default {
         content: "1750px", // perfect for readable text
       },
       screens: {
-        tab: "769px",
+        tab: "821px",
         smLap: "1025px",
         laptop: "1285px",
         content: "1750px",

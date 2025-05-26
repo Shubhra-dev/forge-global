@@ -10,6 +10,7 @@ import AssetsManager from "./pages/assets-manger/AssetsManager";
 import FamilyOffices from "./pages/family-offices/FamilyOffices";
 import VentureCapitalFirms from "./pages/venture-capital-firms/VentureCapitalFirms";
 import WealthManagers from "./pages/wealth-managers/WealthManagers";
+import PrivateCompanies from "./pages/private-companies/PrivateCompanies";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/wealth-managers",
         element: <WealthManagers />,
+      },
+      {
+        path: "/private-companies",
+        element: <PrivateCompanies />,
       },
     ],
   },
