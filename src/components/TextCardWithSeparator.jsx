@@ -1,9 +1,11 @@
 import SmallHeading from "./SmallHeading";
 import Text from "./Text";
 
-function TextCardWithSeparator({ title, detail }) {
+function TextCardWithSeparator({ title, detail, width, height }) {
   return (
-    <div className="h-auto sm:h-[390px] smLap:h-[350px] laptop:h-[300px] w-full sm:w-1/4 p-2.5 bg-white dark:bg-backgroundDark rounded-[20px] border border-borderPrimary dark:border-borderPrimaryDark">
+    <div
+      className={`${height ? height : "h-auto sm:h-[390px] smLap:h-[350px] laptop:h-[300px]"} ${width ? width : "w-full sm:w-1/4"} p-2.5 bg-white dark:bg-backgroundDark rounded-[20px] border border-borderPrimary dark:border-borderPrimaryDark`}
+    >
       <div className="py-2 bg-backgroundPrimary dark:bg-backgroundPrimaryDark rounded-[10px]">
         <SmallHeading
           align={`text-center`}

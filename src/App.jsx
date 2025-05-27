@@ -11,6 +11,7 @@ import FamilyOffices from "./pages/family-offices/FamilyOffices";
 import VentureCapitalFirms from "./pages/venture-capital-firms/VentureCapitalFirms";
 import WealthManagers from "./pages/wealth-managers/WealthManagers";
 import PrivateCompanies from "./pages/private-companies/PrivateCompanies";
+import ForgePro from "./pages/forge-pro/ForgePro";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/private-companies",
         element: <PrivateCompanies />,
+      },
+      {
+        path: "/forge-pro",
+        element: <ForgePro />,
       },
     ],
   },

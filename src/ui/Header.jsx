@@ -145,12 +145,12 @@ export default function Header() {
                     >
                       {/* Triangle Pointer */}
                       <div className="flex justify-start ml-6">
-                        <div className="w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-white dark:border-b-backgroundTertiary"></div>
+                        <div className="w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-white dark:border-b-backgroundPrimaryDark"></div>
                       </div>
 
                       {/* Dropdown Panel */}
 
-                      <div className="bg-white dark:bg-backgroundTertiary shadow-md shadow-gray-400 dark:shadow-none rounded-b-[15px] rounded-tr-[15px] p-5">
+                      <div className="bg-white dark:bg-backgroundPrimaryDark shadow-md shadow-gray-400 dark:shadow-none rounded-b-[15px] rounded-tr-[15px] p-5">
                         {activeIndex === 0 && <WhoWeServe />}
                         {activeIndex === 1 && <WhatWeDo />}
                         {activeIndex === 3 && <Company />}

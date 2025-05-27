@@ -7,6 +7,7 @@ function NewsletterAndDisclosure({
   newsletter = true,
   disclosureDetail = false,
   disclosurelist = true,
+  oneDisclosure = false,
 }) {
   return (
     <SectionLayout bg={`bg-gray-50`} bgDark={`dark:bg-backgroundDark/90`}>
@@ -140,6 +141,40 @@ function NewsletterAndDisclosure({
                 </li>
               </ul>
             </>
+          )}
+          {oneDisclosure && (
+            <p
+              className={`pb-7 text-[10px] text-textParagraph dark:text-textParagraphDark`}
+            >
+              1 The term “institutional” is used broadly to refer to
+              sophisticated, professional investors, and does not refer
+              to an “institutional account” as defined under FINRA Rule 4512(c).
+              <br />
+              <br />
+              Past performance is not indicative of future results. This is not
+              a recommendation, offer, solicitation of an offer, or advice to
+              buy or sell securities by Forge Securities LLC (“FSEC”) or any of
+              its affiliates (collectively “Forge”), nor an offer of brokerage
+              services in any jurisdiction where FSEC is not permitted to offer
+              brokerage services. Registered representatives of FSEC do not (1)
+              advise any party on the merits of a particular transaction; (2)
+              assist in the determination of fair value of any security; or (3)
+              provide legal, tax, or transactional advisory services. Securities
+              and investments are offered only to customers of FSEC, a
+              registered broker-dealer and member FINRA & SIPC. The data
+              contained within this product is derived from various internal and
+              external sources. There can be no guarantee as to the accuracy or
+              reliability of data. While Forge has obtained information from
+              sources it believes to be reliable, Forge does not perform an
+              audit or undertake any duty of due diligence or independent
+              verification of any information it receives. Forge does not
+              guarantee the accuracy, completeness, timeliness, or availability
+              of the data, and is not responsible for any errors or omissions,
+              regardless of the cause, or any results obtained from the use of
+              the data. See Forge Global, Inc. and its affiliates’ Disclosure
+              Library for additional disclosures (Disclaimers &
+              Disclosures and Form CRS) for additional disclosures.
+            </p>
           )}
         </div>
       </>
