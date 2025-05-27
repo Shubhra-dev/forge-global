@@ -1,5 +1,4 @@
 import ForgeProSection from "../../assets/ForgeProSection.png";
-// import ForgeProStat from "../../assets/ForgeProStat.png";
 function ImageBgSection() {
   return (
     <div
