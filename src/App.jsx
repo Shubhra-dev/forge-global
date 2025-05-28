@@ -13,6 +13,8 @@ import WealthManagers from "./pages/wealth-managers/WealthManagers";
 import PrivateCompanies from "./pages/private-companies/PrivateCompanies";
 import ForgePro from "./pages/forge-pro/ForgePro";
 import ForgeMarkets from "./pages/forge-markets/ForgeMarkets";
+import BrowseCompanies from "./pages/browse-companies/BrowseCompanies";
+import ForgePrice from "./pages/forge-price/ForgePrice";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +64,14 @@ const router = createBrowserRouter([
       {
         path: "/forge-markets",
         element: <ForgeMarkets />,
+      },
+      {
+        path: "/browse-companies",
+        element: <BrowseCompanies />,
+      },
+      {
+        path: "/forge-price",
+        element: <ForgePrice />,
       },
     ],
   },
