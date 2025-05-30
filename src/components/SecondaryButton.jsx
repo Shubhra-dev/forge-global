@@ -1,3 +1,4 @@
+import { FaCaretRight } from "react-icons/fa";
 import { RiArrowRightDownLine, RiArrowRightUpLine } from "react-icons/ri";
 
 function SecondaryButton({
@@ -6,6 +7,7 @@ function SecondaryButton({
   type,
   iconUp,
   iconDown,
+  rightIcon,
   padding,
   extraClass,
 }) {
@@ -23,6 +25,9 @@ function SecondaryButton({
       )}
       {iconDown && (
         <RiArrowRightDownLine className="group-hover:text-textHeading text-textHeading dark:text-white text-xl w-[10%]" />
+      )}
+      {rightIcon && (
+        <FaCaretRight className="group-hover:text-textHeading text-textHeading dark:text-white text-xl w-[10%]" />
       )}
     </button>
   );

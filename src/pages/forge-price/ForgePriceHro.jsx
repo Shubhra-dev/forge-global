@@ -24,7 +24,7 @@ function ForgePriceHero() {
             <SmallHeading
               textColor={`text-textHeadingDark`}
               extraClass={`pt-2.5`}
-              align={`text-center text-left`}
+              align={`text-center sm:text-left`}
             >
               Forge Price™ is a new standard in achieving greater pricing
               transparency to the private market.
