@@ -4,6 +4,7 @@ import ClarityAndConfidence from "./ClarityAndConfidence";
 import ForgeDataHero from "./ForgeDataHero";
 import IntegrateForgeData from "./IntegrateForgeData";
 import RecencyTabSlider from "./RecencyTabSlider";
+import JoinMarketPlace from "./JoinMarketPlace";
 
 function ForgeData() {
   return (
@@ -13,6 +14,7 @@ function ForgeData() {
       <IntegrateForgeData />
       <RecencyTabSlider />
       <DeepDive />
+      <JoinMarketPlace />
       <NewsletterAndDisclosure
         newsletter={false}
         disclosurelist={false}
