@@ -1,11 +1,10 @@
 import ForgePriceHero from "./ForgePriceHro";
 import IconBoxes from "./IconBoxes";
-import SectionLayout from "../../ui/SectionLayout";
 import HowToUseForgePrice from "./HowToUseForgePrice";
-import PhotoInfoCard2 from "../../components/PhotoInfoCard2";
-import ForgePricePI1 from "../../assets/ForgePricePI1.png";
-import ForgePricePI2 from "../../assets/ForgePricePI2.png";
-import Text from "../../components/Text";
+import HowToAccess from "./HowToAccess";
+import WhyUse from "./WhyUse";
+import HowToIntegrate from "./HowToIntegrate";
+import NewsletterAndDisclosure from "../../ui/NewsletterAndDisclosure";
 
 function ForgePrice() {
   return (
@@ -13,30 +12,16 @@ function ForgePrice() {
       <ForgePriceHero />
       <IconBoxes />
       <HowToUseForgePrice />
-      <SectionLayout>
-        <PhotoInfoCard2
-          image={ForgePricePI1}
-          heading={`Forge Markets`}
-          buttonText={`Browse Companies`}
-        >
-          <Text extraClass={`pb-5`}>
-            Find new private company investment opportunities and connect with a
-            Specialist.
-          </Text>
-        </PhotoInfoCard2>
-        <PhotoInfoCard2
-          image={ForgePricePI2}
-          imagePosition="right"
-          heading={`Forge Pro`}
-          buttonText={`Get Access`}
-          extraClass={`pt-10 tab:pt-16`}
-        >
-          <Text extraClass={`pb-5`}>
-            Find new private company investment opportunities and connect with a
-            Specialist.
-          </Text>
-        </PhotoInfoCard2>
-      </SectionLayout>
+      <HowToAccess />
+      <WhyUse />
+      <HowToIntegrate />
+      <NewsletterAndDisclosure
+        disclosureDetail={`true`}
+        disclosurelist={false}
+        newsletter={false}
+        disclosureText={`Forge Price™ is calculated and disseminated by Forge Data LLC (“Forge Data”). All rights reserved. Forge Price™ is designed to reflect the up-to-date price performance of venture-backed, late-stage companies. Forge Price™ is determined based on a proprietary model incorporating the pricing inputs from primary founding round information and secondary market transactions, including indications of interest (IOIs). Secondary market transactions are sourced from Forge Securities LLC (an affiliate of Forge Data), a leading market platform, and data collected from other private market trading platforms. The Forge Price™ is a mark of Forge Data. The Forge Price™ is solely for informational purposes and is based upon information from sources believed to be reliable, however Forge Data makes no assurance as to the accuracy or reliability of this data. Forge Data is not an investment adviser and makes no representation regarding the advisability of investing in any asset or asset class. Private company securities are highly illiquid, and the Forge Price™ may rely on a very limited number of trade and/or IOI inputs in its calculation. Brokerage products and services are offered by Forge Securities LLC, a registered broker-dealer and member FINRA/SIPC. Neither reference to company names, nor calculation of Forge Price™ for a particular company(ies) implies any affiliation between Forge or its affiliates and any company, any endorsement or sponsorship of Forge or its affiliates by any company or vice versa, or any partnership, joint venture or other commercial relationship between Forge or its affiliates and any company. Rights with respect to any company marks referred to herein are, as between Forge and its affiliates and such company, owned by the company.
+`}
+      />
     </>
   );
 }

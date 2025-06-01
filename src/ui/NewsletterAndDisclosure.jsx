@@ -8,6 +8,7 @@ function NewsletterAndDisclosure({
   disclosureDetail = false,
   disclosurelist = true,
   oneDisclosure = false,
+  disclosureText,
 }) {
   return (
     <SectionLayout bg={`bg-gray-50`} bgDark={`dark:bg-backgroundDark/90`}>
@@ -37,7 +38,9 @@ function NewsletterAndDisclosure({
             <p
               className={`pb-7 text-[10px] text-textParagraph dark:text-textParagraphDark`}
             >
-              The Forge Accuidity Private Market Index (“FAPMI”) is a custom
+              {disclosureText
+                ? disclosureText
+                : `The Forge Accuidity Private Market Index (“FAPMI”) is a custom
               index calculated and disseminated by Forge Data LLC (“Forge Data”)
               and is a mark of Forge Data. The FAPMI may rely on a very limited
               number of trade and/or IOI inputs in its calculation. The FAPMI is
@@ -79,7 +82,7 @@ function NewsletterAndDisclosure({
               a recommendation, offer, solicitation of an offer, or advice to
               buy or sell securities by Forge, nor an offer of brokerage
               services in any jurisdiction where Forge is not permitted to offer
-              brokerage services.
+              brokerage services.`}
             </p>
           )}
           {disclosurelist && (
