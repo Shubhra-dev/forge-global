@@ -15,6 +15,7 @@ import ForgePro from "./pages/forge-pro/ForgePro";
 import ForgeMarkets from "./pages/forge-markets/ForgeMarkets";
 import BrowseCompanies from "./pages/browse-companies/BrowseCompanies";
 import ForgePrice from "./pages/forge-price/ForgePrice";
+import ForgeData from "./pages/forge-data/ForgeData";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "/forge-price",
         element: <ForgePrice />,
+      },
+      {
+        path: "/forge-data",
+        element: <ForgeData />,
       },
     ],
   },
