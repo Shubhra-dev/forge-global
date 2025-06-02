@@ -17,6 +17,7 @@ import BrowseCompanies from "./pages/browse-companies/BrowseCompanies";
 import ForgePrice from "./pages/forge-price/ForgePrice";
 import ForgeData from "./pages/forge-data/ForgeData";
 import ForgePrivateMarket from "./pages/forge-private-market/ForgePrivateMarket";
+import ForgePrivateMarketAccuidity from "./pages/forge-private-market-accuidity/ForgePrivateMarketAccuidity";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
       {
         path: "/forge-private-market",
         element: <ForgePrivateMarket />,
+      },
+      {
+        path: "/forge-accuidity-private-market",
+        element: <ForgePrivateMarketAccuidity />,
       },
     ],
   },

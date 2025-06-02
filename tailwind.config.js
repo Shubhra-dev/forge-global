@@ -44,6 +44,7 @@ export default {
       screens: {
         tab: "821px",
         smLap: "1025px",
+        bgLap: "1250px",
         laptop: "1285px",
         content: "1750px",
       },
