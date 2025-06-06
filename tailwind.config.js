@@ -42,6 +42,7 @@ export default {
         content: "1750px", // perfect for readable text
       },
       screens: {
+        mobile: "376px",
         tab: "821px",
         smLap: "1025px",
         bgLap: "1250px",

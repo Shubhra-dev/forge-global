@@ -7,9 +7,11 @@ function SmallText({
   font,
   fontWeight,
   extraClass,
+  onClick,
 }) {
   return (
     <p
+      onClick={onClick ? onClick : () => {}}
       className={`text-sm ${fontWeight ? fontWeight : "font-normal"} ${
         font ? font : "font-workSans"
       } ${leading ? leading : " leading-tight"} ${

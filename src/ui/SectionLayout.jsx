@@ -1,6 +1,7 @@
-function SectionLayout({ children, bg, padding, bgDark }) {
+function SectionLayout({ children, bg, padding, bgDark, id }) {
   return (
     <div
+      id={id ? id : ""}
       className={`w-full ${bg ? bg : "bg-white"} ${bgDark ? bgDark : "dark:bg-backgroundDarkGeneral"}`}
     >
       <div className={`max-w-content m-auto`}>
