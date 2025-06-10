@@ -16,7 +16,7 @@ function CompanyStockPrice() {
         {[
           { section: "forge-price", name: "Forge Price" },
           { section: "financing", name: "Financings and valuations" },
-          { section: "compnay-details", name: "Company details" },
+          { section: "company-details", name: "Company details" },
           { section: "faq", name: "FAQ’s" },
           { section: "major-investor", name: "Major investors" },
           { section: "leadership", name: "Leadership" },
