@@ -4,12 +4,13 @@ import { toggleTheme } from "../features/theme/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+import { FaCaretDown, FaCaretRight, FaCaretUp } from "react-icons/fa";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoIosArrowBack } from "react-icons/io";
 import WhoWeServe from "./WhoWeServe";
 import WhatWeDo from "./WhatWeDo";
 import Company from "./Company";
-import { div } from "framer-motion/client";
-import { RxHamburgerMenu } from "react-icons/rx";
+
 const headerMenus = [
   {
     name: "who we serve",
@@ -64,8 +65,54 @@ const headerMenus = [
   {
     name: "what we do",
     dropDown: true,
+    subPages: [
+      {
+        name: "Trading",
+        link: "/#",
+        subPages: [
+          {
+            name: "Forge Market",
+            link: "/forge-market",
+          },
+          {
+            name: "seed & angel investors",
+            link: "/seed-and-angel-investors",
+          },
+        ],
+      },
+      {
+        name: "employee shareholders",
+        link: "/employee-shareholders",
+      },
+      {
+        name: "private companies",
+        link: "/private-companies",
+      },
+      {
+        name: "individual investors",
+        link: "/#",
+        subPages: [
+          {
+            name: "asset managers & hedge funds",
+            link: "/asset-managers",
+          },
+          {
+            name: "family offices",
+            link: "/family-offices",
+          },
+          {
+            name: "venture capital firms",
+            link: "/venture-captal-firms",
+          },
+          {
+            name: "wealth managers & RIAs",
+            link: "/family-offices",
+          },
+        ],
+      },
+    ],
   },
-  { name: "insights" },
+  { name: "insights", link: "insights" },
   {
     name: "company",
     dropDown: true,
@@ -74,19 +121,42 @@ const headerMenus = [
 
 export default function Header() {
   const [activeIndex, setActiveIndex] = useState(null);
-  const navigate = useNavigate();
   const [isSticky, setIsSticky] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileNavStack, setMobileNavStack] = useState([headerMenus]);
+
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme.mode);
+  const navigate = useNavigate();
 
-  // Scroll detection
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY > 100);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Toggle dark mod
+  const toggleMobileMenu = () => {
+    if (mobileMenuOpen) {
+      setMobileNavStack([headerMenus]);
+    }
+    setMobileMenuOpen((prev) => !prev);
+  };
+
+  const handleMobileNavClick = (item) => {
+    if (item.subPages) {
+      setMobileNavStack((prev) => [...prev, item.subPages]);
+    } else {
+      navigate(item.link);
+      setMobileMenuOpen(false);
+      setMobileNavStack([headerMenus]);
+    }
+  };
+
+  const handleBack = () => {
+    setMobileNavStack((prev) => prev.slice(0, -1));
+  };
+
+  const currentMobileMenu = mobileNavStack[mobileNavStack.length - 1];
 
   return (
     <header
@@ -111,29 +181,24 @@ export default function Header() {
             </span>
           </div>
 
-          {/* Navigation */}
+          {/* Desktop Nav */}
           <nav className="hidden tab:flex items-center gap-4">
             {headerMenus.map((menu, index) => (
               <div
                 key={menu.name}
+                onClick={menu.link ? () => navigate(`/${menu.link}`) : () => {}}
                 onMouseEnter={() => setActiveIndex(index)}
                 onMouseLeave={() => setActiveIndex(null)}
                 className="relative"
               >
-                {/* Menu Item */}
-                <div className="py-2.5 cursor-pointer px-3 flex items-center justify-normal gap-2">
+                <div className="py-2.5 cursor-pointer px-3 flex items-center gap-2">
                   <p className="font-medium capitalize text-textHeading dark:text-textHeadingDark">
                     {menu.name}
                   </p>
                   {menu.dropDown &&
-                    (activeIndex === index ? (
-                      <FaCaretUp className="text-textHeading dark:text-textHeadingDark" />
-                    ) : (
-                      <FaCaretDown className="text-textHeading dark:text-textHeadingDark" />
-                    ))}
+                    (activeIndex === index ? <FaCaretUp /> : <FaCaretDown />)}
                 </div>
 
-                {/* Dropdown */}
                 <AnimatePresence>
                   {activeIndex === index && menu.dropDown && (
                     <motion.div
@@ -143,14 +208,11 @@ export default function Header() {
                       transition={{ duration: 0.3 }}
                       className="absolute top-[110%] left-4 -translate-x-1/2 mt-2 z-50"
                     >
-                      {/* Triangle Pointer */}
                       <div className="flex justify-start ml-6">
                         <div className="w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-white dark:border-b-backgroundPrimaryDark"></div>
                       </div>
 
-                      {/* Dropdown Panel */}
-
-                      <div className="bg-white dark:bg-backgroundPrimaryDark shadow-md shadow-gray-400 dark:shadow-none rounded-b-[15px] rounded-tr-[15px] p-5">
+                      <div className="bg-white dark:bg-backgroundPrimaryDark shadow-md rounded-b-[15px] rounded-tr-[15px] p-5">
                         {activeIndex === 0 && <WhoWeServe />}
                         {activeIndex === 1 && <WhatWeDo />}
                         {activeIndex === 3 && <Company />}
@@ -164,7 +226,6 @@ export default function Header() {
 
           {/* Buttons */}
           <div className="flex items-center gap-3">
-            {/* Dark mode toggle */}
             <button
               onClick={() => dispatch(toggleTheme())}
               className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
@@ -175,19 +236,67 @@ export default function Header() {
             <button className="px-4 py-1.5 rounded-full bg-primary text-white hover:bg-primary/60 transition">
               Log In
             </button>
-            {!isSticky && (
-              <div className="p-2 rounded-full border-2 border-borderPrimary dark:border-borderPrimaryDark bg-transparent hover:bg-gradient-to-tr hover:from-secondary2 hover:via-gray-200 hover:via-50% hover:to-secondary2 transition">
-                <RxHamburgerMenu />
-              </div>
-            )}
+
+            {/* Hamburger Icon */}
+            <div
+              className="tab:hidden p-2 rounded-full border-2 border-borderPrimary dark:border-borderPrimaryDark bg-transparent hover:bg-gradient-to-tr hover:from-secondary2 hover:via-gray-200 hover:via-50% hover:to-secondary2 transition"
+              onClick={toggleMobileMenu}
+            >
+              <RxHamburgerMenu />
+            </div>
+
             {isSticky && (
-              <button className="hidden tab:block px-4 py-1.5 rounded-full bg-transparent text-textHeading dark:text-textHeadingDark hover:bg-secondary2 hover:text-textHeading border border-borderPrimary dark:border-borderPrimaryDarktransition">
+              <button className="hidden tab:block px-4 py-1.5 rounded-full bg-transparent text-textHeading dark:text-textHeadingDark hover:bg-secondary2 border border-borderPrimary dark:border-borderPrimaryDark transition">
                 Sign Up
               </button>
             )}
           </div>
         </div>
       </div>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: "66.66%" }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", duration: 0.3 }}
+            className="fixed top-0 right-0 h-screen w-2/3 bg-white dark:bg-backgroundDark z-[100] shadow-lg p-4 flex flex-col"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between mb-4">
+              {mobileNavStack.length > 1 ? (
+                <button
+                  onClick={handleBack}
+                  className="flex items-center gap-1 text-sm font-medium"
+                >
+                  <IoIosArrowBack /> Back
+                </button>
+              ) : (
+                <span className="font-bold text-lg">Menu</span>
+              )}
+              <button onClick={toggleMobileMenu}>
+                <RxHamburgerMenu />
+              </button>
+            </div>
+
+            {/* Current Menu */}
+            <div className="flex flex-col gap-2">
+              {currentMobileMenu.map((item) => (
+                <div
+                  key={item.name}
+                  onClick={() => handleMobileNavClick(item)}
+                  className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
+                >
+                  <span className="capitalize font-medium">{item.name}</span>
+                  {item.subPages && <FaCaretRight />}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

@@ -20,6 +20,7 @@ import ForgePrivateMarket from "./pages/forge-private-market/ForgePrivateMarket"
 import ForgePrivateMarketAccuidity from "./pages/forge-private-market-accuidity/ForgePrivateMarketAccuidity";
 import LiquidityProgram from "./pages/liquidity-program/LiquidityProgram";
 import CompanyDetails from "./pages/company-details/CompanyDetails";
+import InsightReports from "./pages/insights-reports/InsightReports";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
       {
         path: "/company-details",
         element: <CompanyDetails />,
+      },
+      {
+        path: "/insights",
+        element: <InsightReports />,
       },
     ],
   },
