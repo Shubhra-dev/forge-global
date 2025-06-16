@@ -48,10 +48,7 @@ function CompanyDetails() {
           <CompanyDetailsHero companyData={companyData} />
           <CompanyStockPrice companyData={companyData} />
           <FundingRounds companyName={companyData.name} id={companyData.id} />
-          <CompanyDescription
-            companyName={companyData.name}
-            id={companyData.id}
-          />
+          <CompanyDescription id={companyData.id} />
           <CompanyFAQ companyName={companyData.name} id={companyData.id} />
           <MajorInvestors companyName={companyData.name} id={companyData.id} />
           <Leadership companyName={companyData.name} id={companyData.id} />

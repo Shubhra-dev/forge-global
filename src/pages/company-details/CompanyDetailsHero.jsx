@@ -36,9 +36,10 @@ function CompanyDetailsHero({ companyData }) {
                 >
                   ${companyData.forge_price}
                   <span className="pl-1 text-center text-green-700 text-2xl font-normal">
-                    +${companyData.groth} ({companyData.groth_percentage}%)
+                    +${companyData.growth} ({companyData.growth_percentage}%)
                   </span>
                 </SubTitle>
+
                 <div className="flex w-max m-auto sm:w-auto sm:m-0 items-center justify-normal gap-1 pt-1">
                   <img src={Layer} alt="layer" />
                   <SmallText fontWeight={`font-medium`}>

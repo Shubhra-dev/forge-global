@@ -1,2 +1,2 @@
-const BASE_URL = "https://investment.alzakati.com/api";
+const BASE_URL = "https://admin.investment.abidurrahman.com/api";
 export { BASE_URL };

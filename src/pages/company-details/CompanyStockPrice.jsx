@@ -58,7 +58,7 @@ function CompanyStockPrice({ companyData }) {
               fontWeight={`font-medium`}
               textColor={`text-textHeading`}
             >
-              {companyData.forge_price_data.date}
+              {companyData.forge_price_updated}
             </SmallText>
           </div>
           <div className="w-full border-b border-b-borderPrimary py-2.5 flex justify-between">
@@ -79,7 +79,7 @@ function CompanyStockPrice({ companyData }) {
               fontWeight={`font-medium`}
               textColor={`text-textHeading`}
             >
-              ${companyData.forge_price_data.forge_price_valuation}
+              ${companyData.forge_price_valuation}
             </SmallText>
           </div>
         </div>
