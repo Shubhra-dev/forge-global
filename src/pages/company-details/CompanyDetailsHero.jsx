@@ -1,4 +1,3 @@
-import Logo2 from "../../assets/icons/Logo-2.svg";
 import Layer from "../../assets/icons/layer.svg";
 import ExtraSmallText from "../../components/ExtraSmallText";
 import Heading from "../../components/Heading";
@@ -7,21 +6,26 @@ import SecondaryButton from "../../components/SecondaryButton";
 import SmallHeading from "../../components/SmallHeading";
 import SmallText from "../../components/SmallText";
 import SubTitle from "../../components/SubTitle";
+import comapnyData from "../browse-companies/companyData";
 
-function CompanyDetailsHero() {
+function CompanyDetailsHero({ companyData }) {
   return (
     <div className="pt-24 pb-24 sm:pb-0 sm:pt-[65px] relative sm:h-[550px] w-full bg-white dark:bg-backgroundDarkGeneral bg-center bg-no-repeat flex items-center">
       <div className="m-auto max-w-content w-full">
         <div className="px-4 smLap:px-0 smLap:w-10/12 laptop:w-9/12 m-auto my-auto flex gap-4 sm:gap-0 flex-col sm:flex-row items-center justify-between">
           <div className="w-full sm:w-[60%]">
             <div className="w-max m-auto flex sm:w-full sm:m-0 items-center justify-normal gap-2">
-              <img src={Logo2} alt="logo" />
+              <img
+                src={companyData.thumbnail_image}
+                alt="logo"
+                className="w-8 h-8"
+              />
               <Heading
                 align={`text-left`}
                 font={`font-clash`}
                 fontWeight={`font-medium`}
               >
-                Company Name
+                {companyData.name}
               </Heading>
             </div>
             <div className="mt-[15px] rounded-md w-full p-2.5 flex gap-4 sm:gap-0 flex-col sm:flex-row items-center justify-normal bg-backgroundPrimary dark:bg-backgroundCreamDark">
@@ -30,9 +34,9 @@ function CompanyDetailsHero() {
                   align={`text-center sm:text-left`}
                   fontWeight={`font-medium`}
                 >
-                  $39.75
+                  ${companyData.forge_price}
                   <span className="pl-1 text-center text-green-700 text-2xl font-normal">
-                    +$0.01 (0.03%)
+                    +${companyData.groth} ({companyData.groth_percentage}%)
                   </span>
                 </SubTitle>
                 <div className="flex w-max m-auto sm:w-auto sm:m-0 items-center justify-normal gap-1 pt-1">
@@ -41,7 +45,7 @@ function CompanyDetailsHero() {
                     <span className="underline hover:text-blue-700 cursor-pointer">
                       Forge Price
                     </span>{" "}
-                    updated June 1, 2025
+                    updated {companyData.forge_price_updated}
                   </SmallText>
                 </div>
               </div>
@@ -66,13 +70,13 @@ function CompanyDetailsHero() {
                 rounded={`rounded-md`}
                 extraClass={`w-full sm:w-[60%] text-center`}
               >
-                Buy and Sell “Company Name” stock
+                Buy and Sell {companyData.name} stock
               </PrimaryButton>
               <SecondaryButton
                 rounded={`rounded-md`}
                 extraClass={`mt-4 w-full sm:w-[60%] text-center`}
               >
-                Learn More About “Company Name” IPO
+                Learn More About {companyData.name} IPO
               </SecondaryButton>
             </div>
           </div>
@@ -83,7 +87,7 @@ function CompanyDetailsHero() {
               </SmallHeading>
               <ExtraSmallText extraClass={`pt-1.5`}>
                 For more details on private stock price information, financing
-                and valuation for “Company Name”, register or log in.
+                and valuation for {companyData.name}, register or log in.
               </ExtraSmallText>
               <div className="py-3">
                 <input

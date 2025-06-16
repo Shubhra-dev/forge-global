@@ -3,7 +3,8 @@ import SmallText from "../../components/SmallText";
 import SectionLayout from "../../ui/SectionLayout";
 import StockPriceChart from "./StockPriceChart";
 import PrimaryButton from "../../components/PrimaryButton";
-function CompanyStockPrice() {
+import comapnyData from "../browse-companies/companyData";
+function CompanyStockPrice({ companyData }) {
   const [activeSection, setActiveSection] = useState(1);
   function handleClick(id) {
     document.getElementById(id)?.scrollIntoView({
@@ -41,7 +42,7 @@ function CompanyStockPrice() {
           );
         })}
       </div>
-      <StockPriceChart />
+      <StockPriceChart companyData={companyData} />
       <div className="py-5 flex flex-col sm:flex-row gap-5 items-start justify-between">
         <div className="w-full sm:w-1/3">
           <SmallText
@@ -57,7 +58,7 @@ function CompanyStockPrice() {
               fontWeight={`font-medium`}
               textColor={`text-textHeading`}
             >
-              06/01/2025
+              {companyData.forge_price_data.date}
             </SmallText>
           </div>
           <div className="w-full border-b border-b-borderPrimary py-2.5 flex justify-between">
@@ -78,7 +79,7 @@ function CompanyStockPrice() {
               fontWeight={`font-medium`}
               textColor={`text-textHeading`}
             >
-              $91.8B
+              ${companyData.forge_price_data.forge_price_valuation}
             </SmallText>
           </div>
         </div>
@@ -96,7 +97,7 @@ function CompanyStockPrice() {
               fontWeight={`font-medium`}
               textColor={`text-textHeading`}
             >
-              XXX
+              {companyData.last_closed_trade_data.close_date}
             </SmallText>
           </div>
           <div className="w-full border-b border-b-borderPrimary py-2.5 flex justify-between">
@@ -105,7 +106,7 @@ function CompanyStockPrice() {
               fontWeight={`font-medium`}
               textColor={`text-textHeading`}
             >
-              XXX
+              {companyData.last_closed_trade_data.last_closed_trade_price}
             </SmallText>
           </div>
         </div>
@@ -123,7 +124,7 @@ function CompanyStockPrice() {
               fontWeight={`font-medium`}
               textColor={`text-textHeading`}
             >
-              XXX
+              {companyData.last_funding_round_data.date}
             </SmallText>
           </div>
           <div className="w-full border-b border-b-borderPrimary py-2.5 flex justify-between">
@@ -132,7 +133,7 @@ function CompanyStockPrice() {
               fontWeight={`font-medium`}
               textColor={`text-textHeading`}
             >
-              XXX
+              {companyData.last_funding_round_data.price_per_share}
             </SmallText>
           </div>
         </div>

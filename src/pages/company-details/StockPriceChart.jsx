@@ -8,7 +8,6 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import dayjs from "dayjs";
-import allChartData from "./fullDailyChartData.json";
 import SubTitle from "../../components/SubTitle";
 const filterConfig = {
   "3M": { value: 3, type: "month" },
@@ -41,17 +40,19 @@ const getTickFormatter = (filter) => {
   };
 };
 
-const StockPriceChart = () => {
+const StockPriceChart = ({ companyData }) => {
   const [selectedFilter, setSelectedFilter] = useState("1Y");
 
   const filteredData = useMemo(() => {
     const config = filterConfig[selectedFilter];
-    if (!config) return allChartData;
+    if (!config) return companyData.company_price_histories;
 
     const endDate = dayjs();
     const startDate = endDate.subtract(config.value, config.type);
 
-    return allChartData.filter((d) => dayjs(d.date).isAfter(startDate));
+    return companyData.company_price_histories.filter((d) =>
+      dayjs(d.date).isAfter(startDate)
+    );
   }, [selectedFilter]);
 
   return (
@@ -62,7 +63,7 @@ const StockPriceChart = () => {
           font={`font-clash`}
           extraClass={`pb-5`}
         >
-          “Company Name” stock price
+          {companyData.name} stock price
         </SubTitle>
         <div className="flex space-x-2">
           {Object.keys(filterConfig).map((key) => (
@@ -93,7 +94,7 @@ const StockPriceChart = () => {
             </linearGradient>
           </defs>
           <XAxis
-            dataKey="date"
+            dataKey="price_date"
             tickFormatter={getTickFormatter(selectedFilter)}
             interval={0}
             tick={{ fontSize: 10 }}
@@ -106,7 +107,7 @@ const StockPriceChart = () => {
           />
           <Area
             type="linear"
-            dataKey="price"
+            dataKey="forge_price"
             stroke="#10874E"
             fillOpacity={1}
             fill="url(#colorPrice)"

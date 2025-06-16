@@ -85,7 +85,7 @@ const fundingRounds = [
   },
 ];
 
-const FundingDetailsTable = () => {
+const FundingDetailsTable = ({ fundingRoundDetails }) => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const toggleRow = (index) =>
@@ -109,7 +109,7 @@ const FundingDetailsTable = () => {
             </tr>
           </thead>
           <tbody>
-            {fundingRounds.map((round, index) => (
+            {fundingRoundDetails.map((round, index) => (
               <React.Fragment key={index}>
                 <tr
                   onClick={() => toggleRow(index)}
@@ -122,19 +122,23 @@ const FundingDetailsTable = () => {
                       ) : (
                         <ChevronRight size={16} />
                       )}
-                      {round.fundingDate}
+                      {round.funding_date}
                     </div>
                   </td>
-                  <td className="px-2 py-3 border">{round.shareClass}</td>
-                  <td className="px-2 py-3 border">{round.amountRaised}</td>
-                  <td className="px-2 py-3 border">{round.pricePerShare}</td>
+                  <td className="px-2 py-3 border">{round.share_class}</td>
+                  <td className="px-2 py-3 border">{round.amount_raised}</td>
+                  <td className="px-2 py-3 border">{round.price_per_share}</td>
                   <td className="px-2 py-3 border">
-                    {round.postMoneyValuation}
+                    {round.post_money_valuation}
                   </td>
-                  <td className="px-2 py-3 border">{round.keyInvestors}</td>
+                  <td className="px-2 py-3 border">
+                    {round.key_investors
+                      ? round.key_investors
+                      : "Undisclosed Investors"}
+                  </td>
                 </tr>
 
-                {expandedIndex === index && round.details && (
+                {expandedIndex === index && (
                   <tr className="">
                     <td
                       colSpan={7}
@@ -154,7 +158,7 @@ const FundingDetailsTable = () => {
                               fontWeight={`font-medium`}
                               leading={`leading-none`}
                             >
-                              {round.details.pricePerShare}
+                              {round.price_per_share}
                             </SmallText>
                           </div>
                           <div className="pb-[15px]">
@@ -169,7 +173,7 @@ const FundingDetailsTable = () => {
                               fontWeight={`font-medium`}
                               leading={`leading-none`}
                             >
-                              {round.details.shareOutstanding}
+                              {round.shares_outstanding}
                             </SmallText>
                           </div>
                         </div>
@@ -186,7 +190,7 @@ const FundingDetailsTable = () => {
                               fontWeight={`font-medium`}
                               leading={`leading-none`}
                             >
-                              {round.details.liquidationPrefOrder}
+                              {round.liquidation_pref_order}
                             </SmallText>
                           </div>
                           <div className="pb-[15px]">
@@ -201,7 +205,7 @@ const FundingDetailsTable = () => {
                               fontWeight={`font-medium`}
                               leading={`leading-none`}
                             >
-                              {round.details.liquidationPrefMultiplier}
+                              {round.liquidation_pref_multiple}
                             </SmallText>
                           </div>
                           <div className="pb-[15px]">
@@ -216,7 +220,7 @@ const FundingDetailsTable = () => {
                               fontWeight={`font-medium`}
                               leading={`leading-none`}
                             >
-                              {round.details.conversionRatio}
+                              {round.conversion_ratio}
                             </SmallText>
                           </div>
                         </div>
@@ -233,7 +237,7 @@ const FundingDetailsTable = () => {
                               fontWeight={`font-medium`}
                               leading={`leading-none`}
                             >
-                              {round.details.dividendRate}
+                              {round.dividend_rate}
                             </SmallText>
                           </div>
                           <div className="pb-[15px]">
@@ -248,7 +252,7 @@ const FundingDetailsTable = () => {
                               fontWeight={`font-medium`}
                               leading={`leading-none`}
                             >
-                              {round.details.cumulative}
+                              {round.cumulative}
                             </SmallText>
                           </div>
                           <div className="pb-[15px]">
@@ -263,7 +267,7 @@ const FundingDetailsTable = () => {
                               fontWeight={`font-medium`}
                               leading={`leading-none`}
                             >
-                              {round.details.participating}
+                              {round.participating}
                             </SmallText>
                           </div>
                           <div className="pb-[15px]">
@@ -278,7 +282,9 @@ const FundingDetailsTable = () => {
                               fontWeight={`font-medium`}
                               leading={`leading-none`}
                             >
-                              {round.details.participationCap}
+                              {round.participation_cap === ""
+                                ? "--"
+                                : round.participation_cap}
                             </SmallText>
                           </div>
                         </div>
@@ -296,8 +302,8 @@ const FundingDetailsTable = () => {
                               fontWeight={`font-medium`}
                               leading={`leading-1`}
                             >
-                              {round.keyInvestors
-                                ? round.keyInvestors
+                              {round.key_investors
+                                ? round.key_investors
                                 : "Undisclosed Investors"}
                             </SmallText>
                           </div>

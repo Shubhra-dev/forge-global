@@ -39,7 +39,7 @@ const headerMenus = [
         link: "/private-companies",
       },
       {
-        name: "individual investors",
+        name: "Institutional investors",
         link: "/#",
         subPages: [
           {
@@ -71,42 +71,48 @@ const headerMenus = [
         link: "/#",
         subPages: [
           {
+            name: "Forge Pro",
+            link: "/forge-pro",
+          },
+          {
             name: "Forge Market",
             link: "/forge-market",
           },
           {
-            name: "seed & angel investors",
-            link: "/seed-and-angel-investors",
+            name: "Browse Companies",
+            link: "/browse-comapanies",
           },
         ],
       },
       {
-        name: "employee shareholders",
-        link: "/employee-shareholders",
-      },
-      {
-        name: "private companies",
-        link: "/private-companies",
-      },
-      {
-        name: "individual investors",
+        name: "Liquidity Programs",
         link: "/#",
         subPages: [
           {
-            name: "asset managers & hedge funds",
-            link: "/asset-managers",
+            name: "Liquidity Programs",
+            link: "/liquidity-program",
+          },
+        ],
+      },
+      {
+        name: "Data",
+        link: "#",
+        subPages: [
+          {
+            name: "Forge Price",
+            link: "/forge-price",
           },
           {
-            name: "family offices",
-            link: "/family-offices",
+            name: "Forge Private Market Index",
+            link: "/forge-private-market",
           },
           {
-            name: "venture capital firms",
-            link: "/venture-captal-firms",
+            name: "Forge Data",
+            link: "/forge-data",
           },
           {
-            name: "wealth managers & RIAs",
-            link: "/family-offices",
+            name: "Forge Accuidity Private Market",
+            link: "/forge-accuidity-private-market",
           },
         ],
       },
@@ -116,6 +122,29 @@ const headerMenus = [
   {
     name: "company",
     dropDown: true,
+    subPages: [
+      {
+        name: "Who we are?",
+        link: "#",
+      },
+      {
+        name: "Leadership",
+        link: "#",
+      },
+      {
+        name: "FAQ's",
+        link: "#",
+      },
+
+      {
+        name: "contact us",
+        link: "/contact-us",
+      },
+      {
+        name: "Career",
+        link: "#",
+      },
+    ],
   },
 ];
 
@@ -262,7 +291,7 @@ export default function Header() {
             animate={{ x: "66.66%" }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-0 right-0 h-screen w-2/3 bg-white dark:bg-backgroundDark z-[100] shadow-lg p-4 flex flex-col"
+            className="tab:hidden fixed w-full top-0 right-0 h-screen bg-white dark:bg-backgroundDark z-[100] shadow-lg p-8 flex flex-col"
           >
             {/* Header */}
             <div className="flex items-center justify-between mb-4">

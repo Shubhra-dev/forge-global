@@ -11,31 +11,6 @@ import {
 import dayjs from "dayjs";
 import SmallHeading from "../../components/SmallHeading";
 
-const fundingData = [
-  {
-    share_class: "Series A",
-    funding_date: "2023-06-01",
-    amount_raised: 1000,
-    price_per_share: 600,
-    post_money_valuation: 10000,
-  },
-  {
-    share_class: "Series A",
-    funding_date: "2024-06-02",
-    amount_raised: 11000,
-    price_per_share: 610,
-    post_money_valuation: 11000,
-  },
-  {
-    share_class: "Series B",
-    funding_date: "2025-06-03",
-    amount_raised: 112000,
-    price_per_share: 620,
-    post_money_valuation: 12000,
-  },
-  // Add more data as needed
-];
-
 const getTickFormatter = (dates) => {
   return (tick) => {
     const date = dayjs(tick);
@@ -45,8 +20,8 @@ const getTickFormatter = (dates) => {
   };
 };
 
-const FundingChart = () => {
-  const [data] = useState(fundingData);
+const FundingChart = ({ historyChart }) => {
+  const [data] = useState(historyChart);
 
   const sortedData = useMemo(
     () =>
