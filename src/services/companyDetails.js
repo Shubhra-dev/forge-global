@@ -16,3 +16,14 @@ export async function getFAQ(id) {
 export async function getInvestors(id) {
   return await publicGet(`${BASE_URL}/companies/${id}/company-investors`);
 }
+export async function getLeadershipAndBoard(id) {
+  return await publicGet(
+    `${BASE_URL}/companies/${id}/leadership-and-board-members`
+  );
+}
+export async function getSimilarCompanies(id) {
+  return await publicGet(`${BASE_URL}/companies/${id}/similar-companies`);
+}
+export async function getCompanyMedia(id) {
+  return await publicGet(`${BASE_URL}/companies/${id}/company-news`);
+}

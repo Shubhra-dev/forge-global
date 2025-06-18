@@ -1,10 +1,9 @@
-import MonthlyInsight from "../../assets/MonthlyInsight.jpg";
 import SmallHeading from "../../components/SmallHeading";
 import SmallText from "../../components/SmallText";
 
-function BlogCards({ title, date, month }) {
+function BlogCards({ title, date, image, id }) {
   return (
-    <div className="p-[15px] rounded-3xl w-full tab:w-1/2 flex items-center justify-normal gap-7 border border-borderPrimary dark:border-borderPrimaryDark hover:shadow-md">
+    <div className="cursor-pointer p-[15px] rounded-3xl w-full tab:w-[47%] flex items-center justify-normal gap-7 border border-borderPrimary dark:border-borderPrimaryDark hover:shadow-md">
       <div className="w-[50%] sm:w-[60%]">
         <SmallText
           extraClass={`uppercase tracking-wide`}
@@ -25,7 +24,7 @@ function BlogCards({ title, date, month }) {
       </div>
       <div
         className="w-[50%] sm:w-[40%] h-36 bg-center bg-cover bg-no-repeat rounded-xl p-[15px] flex flex-col justify-end items-start"
-        style={{ backgroundImage: `url(${MonthlyInsight})` }}
+        style={{ backgroundImage: `url(${image})` }}
       ></div>
     </div>
   );

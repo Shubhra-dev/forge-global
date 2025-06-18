@@ -55,14 +55,18 @@ function CompanyDetailsHero({ companyData }) {
                   align={`text-center sm:text-left`}
                   fontWeight={`font-medium`}
                 >
-                  $91.8B
+                  ${companyData.forge_price_valuation}
                 </SubTitle>
                 <SmallText
                   align={`text-center sm:text-left`}
                   fontWeight={`font-medium`}
                   extraClass={`pt-1`}
                 >
-                  Forge Price Valuation, June 2025
+                  Forge Price Valuation,{" "}
+                  {new Date(companyData.forge_price_updated).toLocaleDateString(
+                    "en-US",
+                    { month: "long", year: "numeric" }
+                  )}
                 </SmallText>
               </div>
             </div>

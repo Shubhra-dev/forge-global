@@ -27,15 +27,15 @@ function WhyForge() {
           >
             First time buying private market stock?
           </Text>
-          <div className="pt-3 pb-2 flex items-center justify-normal gap-2">
+          <div className="pt-3 pb-2 flex cursor-pointer items-center justify-normal gap-2">
             <img src={ArrowRightUp} alt="arrow right up" />
             <Text>Secondary marketplace explained</Text>
           </div>
-          <div className="pb-2 flex items-center justify-normal gap-2">
+          <div className="pb-2 flex cursor-pointer items-center justify-normal gap-2">
             <img src={ArrowRightUp} alt="arrow right up" />
             <Text>Secondary marketplace explained</Text>
           </div>
-          <div className="pb-3 flex items-center justify-normal gap-2">
+          <div className="pb-3 flex cursor-pointer items-center justify-normal gap-2">
             <img src={ArrowRightUp} alt="arrow right up" />
             <Text>Secondary marketplace explained</Text>
           </div>
@@ -47,15 +47,15 @@ function WhyForge() {
           >
             New to selling your private company stock?
           </Text>
-          <div className="pt-3 pb-2 flex items-center justify-normal gap-2">
+          <div className="pt-3 pb-2 flex cursor-pointer items-center justify-normal gap-2">
             <img src={ArrowRightUp} alt="arrow right up" />
             <Text>Secondary marketplace explained</Text>
           </div>
-          <div className="pb-2 flex items-center justify-normal gap-2">
+          <div className="pb-2 flex cursor-pointer items-center justify-normal gap-2">
             <img src={ArrowRightUp} alt="arrow right up" />
             <Text>Secondary marketplace explained</Text>
           </div>
-          <div className="pb-3 flex items-center justify-normal gap-2">
+          <div className="pb-3 flex cursor-pointer items-center justify-normal gap-2">
             <img src={ArrowRightUp} alt="arrow right up" />
             <Text>Secondary marketplace explained</Text>
           </div>

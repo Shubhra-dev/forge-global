@@ -51,7 +51,7 @@ function CompanyDetails() {
           <CompanyDescription id={companyData.id} />
           <CompanyFAQ companyName={companyData.name} id={companyData.id} />
           <MajorInvestors companyName={companyData.name} id={companyData.id} />
-          <Leadership companyName={companyData.name} id={companyData.id} />
+          <Leadership id={companyData.id} />
           <MediaHighlights companyName={companyData.name} id={companyData.id} />
           <SimilarCompanies
             companyName={companyData.name}

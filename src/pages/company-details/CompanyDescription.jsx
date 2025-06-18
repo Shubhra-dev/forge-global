@@ -44,14 +44,18 @@ function CompanyDescription({ id }) {
                 Company details
               </SubTitle>
               <div
+                className="text-textParagraph dark:text-textParagraphDark"
                 dangerouslySetInnerHTML={{ __html: companyDetails.details }}
               ></div>
               <SmallText
                 extraClass={`py-[15px] cursor-pointer`}
                 textColor={`text-blue-500`}
                 textColorDark={` `}
+                onClick={() =>
+                  window.open(companyDetails.company_url, "_blank")
+                }
               >
-                company_name.com/about
+                {companyDetails.company_url}
               </SmallText>
               <div className="flex flex-wrap items-start justify-between gap-5">
                 <div>
@@ -62,7 +66,7 @@ function CompanyDescription({ id }) {
                     Sectors
                   </SmallText>
                   <SmallText fontWeight={`font-medium`}>
-                    Enterprise Software
+                    {companyDetails.sector}
                   </SmallText>
                 </div>
                 <div>
@@ -73,7 +77,7 @@ function CompanyDescription({ id }) {
                     SubSector
                   </SmallText>
                   <SmallText fontWeight={`font-medium`}>
-                    Data Intelligence
+                    {companyDetails.sub_sector}
                   </SmallText>
                 </div>
                 <div>
@@ -83,7 +87,9 @@ function CompanyDescription({ id }) {
                   >
                     Founded
                   </SmallText>
-                  <SmallText fontWeight={`font-medium`}>2023</SmallText>
+                  <SmallText fontWeight={`font-medium`}>
+                    {companyDetails.founded}
+                  </SmallText>
                 </div>
                 <div>
                   <SmallText
@@ -93,7 +99,7 @@ function CompanyDescription({ id }) {
                     Headquarters
                   </SmallText>
                   <SmallText fontWeight={`font-medium`}>
-                    Burlingame, CA, United States
+                    {companyDetails.headquarters}
                   </SmallText>
                 </div>
               </div>
