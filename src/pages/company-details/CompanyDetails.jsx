@@ -21,7 +21,6 @@ function CompanyDetails() {
       try {
         const data = await showCompany(`company-b`);
         setCompanyData(data.result.company);
-        console.log("Company Data:", data.result.company);
       } catch (error) {
         console.error("Error fetching company data:", error);
         setIsError(true);

@@ -50,7 +50,7 @@ function Leadership({ id }) {
             </div>
             <div className="pt-5 flex flex-wrap sm:flex-nowrap items-start justify-normal gap-8 sm:gap-[50px]">
               {leadershipData.leadership_members.map((leader, index) => (
-                <div className="w-[45%] sm:w-auto tab:w-1/4">
+                <div key={index} className="w-[45%] sm:w-auto tab:w-1/4">
                   <SmallHeading fontWeight={`font-medium`}>
                     {leader.name}
                   </SmallHeading>
@@ -68,7 +68,7 @@ function Leadership({ id }) {
             </div>
             <div className="pt-5 flex flex-wrap sm:flex-nowrap items-start justify-normal gap-8 sm:gap-[50px]">
               {leadershipData.board_members.map((board, index) => (
-                <div className="w-[45%] sm:w-auto tab:w-1/4">
+                <div key={index} className="w-[45%] sm:w-auto tab:w-1/4">
                   <SmallHeading fontWeight={`font-medium`}>
                     {board.name}
                   </SmallHeading>

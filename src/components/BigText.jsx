@@ -15,7 +15,7 @@ function BigText({
       } ${font ? font : "font-workSans"} ${
         leading ? leading : " leading-relaxed tab:leading-7"
       } ${textColor ? textColor : "text-textSubheading"} ${
-        textColorDark ? { textColorDark } : "dark:text-textSubheadingDark"
+        textColorDark ? textColorDark : "dark:text-textSubheadingDark"
       } ${align ? align : "text-left"} ${extraClass ? extraClass : ""}`}
     >
       {children}

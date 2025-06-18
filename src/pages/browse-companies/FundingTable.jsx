@@ -77,7 +77,7 @@ const FundingTable = () => {
                   setSearchTerm(e.target.value);
                   setCurrentPage(1);
                 }}
-                className=" rounded-md pl-8 pr-2.5 py-2.5 w-40 sm:w-56 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark"
+                className=" rounded-md pl-8 pr-2.5 py-2.5 w-32 sm:w-56 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark"
               />
             </div>
             <select
@@ -86,7 +86,7 @@ const FundingTable = () => {
                 setSelectedSector(e.target.value);
                 setCurrentPage(1);
               }}
-              className=" rounded-md p-2.5 w-40 sm:w-48 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark"
+              className=" rounded-md p-2.5 w-32 sm:w-48 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark"
             >
               <option value="" disabled>
                 Sector
@@ -103,7 +103,7 @@ const FundingTable = () => {
                 setSelectedSubsector(e.target.value);
                 setCurrentPage(1);
               }}
-              className=" rounded-md w-40 sm:w-48 p-2.5 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark"
+              className=" rounded-md w-32 sm:w-48 p-2.5 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark"
             >
               <option value="" disabled>
                 Subsector
@@ -120,7 +120,7 @@ const FundingTable = () => {
                 setSelectedSubsector(e.target.value);
                 setCurrentPage(1);
               }}
-              className=" rounded-md w-40 sm:w-48 p-2.5 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark"
+              className=" rounded-md w-32 sm:w-48 p-2.5 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark"
             >
               <option value="" disabled>
                 Post Money Valuation
@@ -313,7 +313,7 @@ const FundingTable = () => {
           </>
         )}
         {viewStyle === "grid" && (
-          <div className="hidden sm:grid grid-cols-2 tab:grid-cols-4 gap-[20px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 tab:grid-cols-4 gap-[20px]">
             {paginatedCompanies.map((company, index) => (
               <CompanyCards key={index} />
             ))}
