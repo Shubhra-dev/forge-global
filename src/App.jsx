@@ -22,6 +22,7 @@ import LiquidityProgram from "./pages/liquidity-program/LiquidityProgram";
 import CompanyDetails from "./pages/company-details/CompanyDetails";
 import InsightReports from "./pages/insights-reports/InsightReports";
 import InsightDetails from "./pages/insight-details/InsightDetails";
+import About from "./pages/about/About";
 
 const router = createBrowserRouter([
   {
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
       {
         path: "/insights/details",
         element: <InsightDetails />,
+      },
+      {
+        path: "/about-company",
+        element: <About />,
       },
     ],
   },
