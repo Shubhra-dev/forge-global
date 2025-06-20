@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionLayout from "../../ui/SectionLayout";
-import companyData from "./companyData";
 import SmallText from "../../components/SmallText";
 import ExtraSmallText from "../../components/ExtraSmallText";
-import Logo1 from "../../assets/icons/Logo.svg";
-import Logo2 from "../../assets/icons/Logo-2.svg";
-import Logo3 from "../../assets/icons/Logo-3.svg";
-import Logo4 from "../../assets/icons/Logo-4.svg";
 import { FaSearch } from "react-icons/fa";
 import { GoTable } from "react-icons/go";
 import { HiViewGrid } from "react-icons/hi";
@@ -39,6 +34,12 @@ const FundingTable = () => {
   const [valuations, setValuations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const resetFilters = () => {
+    setSearchTerm("");
+    setSelectedSector("");
+    setSelectedSubsector("");
+    setSelectedValuation("");
+  };
   useEffect(() => {
     const fetchFilterData = async () => {
       setIsLoading(true);
@@ -84,6 +85,7 @@ const FundingTable = () => {
           searchTerm
         );
         setCompanies(data.result.companies);
+        console.log(data.result);
         setPagination(data.result.pagination);
       } catch (error) {
         console.error("Error fetching subsector data:", error);
@@ -92,8 +94,16 @@ const FundingTable = () => {
         setIsLoading(false);
       }
     };
-    fetchCompanies();
-  }, [selectedSector]);
+    if (searchTerm.length > 2 || searchTerm.length == 0) {
+      fetchCompanies();
+    }
+  }, [
+    selectedSector,
+    selectedSubsector,
+    selectedValuation,
+    pagination.current_page,
+    searchTerm,
+  ]);
 
   return (
     <SectionLayout>
@@ -105,7 +115,7 @@ const FundingTable = () => {
               <FaSearch className="absolute top-[35%] left-2 dark:text-textHeadingDark" />
               <input
                 type="text"
-                placeholder="Search for company"
+                placeholder="Search (min 3 letters)"
                 value={searchTerm}
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
@@ -158,7 +168,7 @@ const FundingTable = () => {
             </select>
 
             <button
-              // onClick={resetFilters}
+              onClick={resetFilters}
               className="p-2 rounded-md dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark"
             >
               Reset
@@ -167,22 +177,21 @@ const FundingTable = () => {
           <div className="flex items-center rounded-md mt-0.5 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark">
             <div
               onClick={() => setViewStyle(`table`)}
-              className={`cursor-pointer p-2.5 rounded-l-md ${viewStyle === "table" ? "bg-green-900 text-white" : ""}`}
+              className={`cursor-pointer p-2.5 rounded-l-md ${viewStyle === "table" ? "bg-primary text-white" : ""}`}
             >
               <GoTable title="Table View" className="text-xl" />
             </div>
 
             <div
               onClick={() => setViewStyle(`grid`)}
-              className={`cursor-pointer p-2.5 rounded-r-md ${viewStyle === "grid" ? "bg-green-900 text-white" : ""}`}
+              className={`cursor-pointer p-2.5 rounded-r-md ${viewStyle === "grid" ? "bg-primary text-white" : ""}`}
             >
               <HiViewGrid title="Grid View" className="text-xl" />
             </div>
           </div>
         </div>
-
         {/* Table */}
-        {viewStyle === "table" && (
+        {!isLoading && !isError && viewStyle === "table" && (
           <>
             <div className="overflow-x-auto mb-2">
               <table className="min-w-full text-sm">
@@ -301,7 +310,6 @@ const FundingTable = () => {
                 {pagination.current_page > 1 && (
                   <button
                     onClick={() => goToPage(pagination.current_page - 1)}
-                    disabled={pagination.current_page === 1}
                     className="px-2 py-1 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark rounded"
                   >
                     Prev
@@ -310,25 +318,28 @@ const FundingTable = () => {
                 <span className="dark:text-textHeadingDark dark:bg-backgroundDark">
                   Page {pagination.current_page} of {pagination.last_page}
                 </span>
-                <button
-                  onClick={() => goToPage(pagination.current_page + 1)}
-                  disabled={pagination.current_page === pagination.last_page}
-                  className="px-2 py-1 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark rounded"
-                >
-                  Next
-                </button>
-                <button
-                  onClick={() => goToPage(pagination.last_page)}
-                  disabled={pagination.current_page === pagination.last_page}
-                  className="px-2 py-1 border rounded dark:text-textHeadingDark dark:bg-backgroundDark border-borderPrimary dark:border-borderPrimaryDark"
-                >
-                  Last
-                </button>
+                {pagination.last_page - pagination.current_page > 1 && (
+                  <button
+                    onClick={() => goToPage(pagination.current_page + 1)}
+                    className="px-2 py-1 dark:text-textHeadingDark dark:bg-backgroundDark border border-borderPrimary dark:border-borderPrimaryDark rounded"
+                  >
+                    Next
+                  </button>
+                )}
+                {pagination.current_page !== pagination.last_page && (
+                  <button
+                    onClick={() => goToPage(pagination.last_page)}
+                    disabled={pagination.current_page === pagination.last_page}
+                    className="px-2 py-1 border rounded dark:text-textHeadingDark dark:bg-backgroundDark border-borderPrimary dark:border-borderPrimaryDark"
+                  >
+                    Last
+                  </button>
+                )}
               </div>
             </div>
           </>
         )}
-        {viewStyle === "grid" && (
+        {!isLoading && !isError && viewStyle === "grid" && (
           <div className="grid grid-cols-1 sm:grid-cols-2 tab:grid-cols-4 gap-[20px]">
             {companies.map((company, index) => (
               <CompanyCards key={index} company={company} />
