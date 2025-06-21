@@ -36,8 +36,8 @@ function AboutHero() {
             <div className="px-4 smLap:px-0 smLap:w-10/12 laptop:w-9/12 m-auto my-auto h-[350px] flex items-center justify-normal"></div>
           </div>
         </div>
-        <div className="w-full sm:w-[80%] sm:m-auto tab:w-full flex flex-wrap tab:flex-nowrap items-center justify-normal gap-5">
-          <div className="w-[47%] tab:w-1/4 px-5 py-2.5 border-l border-l-borderPrimary">
+        <div className="w-full sm:w-[80%] sm:m-auto tab:w-full flex flex-wrap tab:flex-nowrap items-stretch justify-normal gap-5">
+          <div className="w-[47%] flex-col tab:w-1/4 px-5 py-2.5 border-l border-l-borderPrimary">
             <Heading
               align={`text-left`}
               font={`font-clash`}
@@ -55,7 +55,7 @@ function AboutHero() {
               Assets under management
             </SmallText>
           </div>
-          <div className="w-[47%] tab:w-1/4 px-5 py-2.5 border-l border-l-borderPrimary">
+          <div className="w-[47%] flex-col tab:w-1/4 px-5 py-2.5 border-l border-l-borderPrimary">
             <Heading
               align={`text-left`}
               font={`font-clash`}
@@ -73,7 +73,7 @@ function AboutHero() {
               Saved for clients annually
             </SmallText>
           </div>
-          <div className="w-[47%] tab:w-1/4 px-5 py-2.5 border-l border-l-borderPrimary">
+          <div className="w-[47%] flex-col tab:w-1/4 px-5 py-2.5 border-l border-l-borderPrimary">
             <Heading
               align={`text-left`}
               font={`font-clash`}
@@ -90,7 +90,7 @@ function AboutHero() {
               Repeat clients or referrals
             </SmallText>
           </div>
-          <div className="w-[47%] tab:w-1/4 px-5 py-2.5 border-l border-l-borderPrimary">
+          <div className="w-[47%] flex-col tab:w-1/4 px-5 py-2.5 border-l border-l-borderPrimary">
             <Heading
               align={`text-left`}
               font={`font-clash`}
