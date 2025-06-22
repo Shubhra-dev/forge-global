@@ -23,6 +23,7 @@ import CompanyDetails from "./pages/company-details/CompanyDetails";
 import InsightReports from "./pages/insights-reports/InsightReports";
 import InsightDetails from "./pages/insight-details/InsightDetails";
 import About from "./pages/about/About";
+import Leadership from "./pages/leadership/Leadership";
 
 const router = createBrowserRouter([
   {
@@ -112,6 +113,10 @@ const router = createBrowserRouter([
       {
         path: "/about-company",
         element: <About />,
+      },
+      {
+        path: "/leadership",
+        element: <Leadership />,
       },
     ],
   },

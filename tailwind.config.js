@@ -55,6 +55,18 @@ export default {
       borderRadius: {
         md: "10px", // Customize the rounded-md value (default is 0.375rem or 6px)
       },
+      keyframes: {
+        shake: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "20%": { transform: "translateY(-2px)" },
+          "40%": { transform: "translateY(2px)" },
+          "60%": { transform: "translateY(-2px)" },
+          "80%": { transform: "translateY(2px)" },
+        },
+      },
+      animation: {
+        shake: "shake 0.4s ease-in-out",
+      },
     },
   },
   plugins: [],
