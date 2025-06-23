@@ -14,7 +14,7 @@ function Applayout() {
   }, [location]);
 
   return (
-    <div className="font-workSans">
+    <div className="font-workSans dark:bg-backgroundPrimaryDark">
       <Header />
       <div className="min-h-screen">
         <Outlet />

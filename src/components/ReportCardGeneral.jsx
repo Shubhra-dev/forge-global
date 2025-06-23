@@ -3,14 +3,14 @@ import BlogGraph from "../assets/BlogGraph.jpg";
 import ExtraSmallText from "../components/ExtraSmallText";
 import SmallHeading from "../components/SmallHeading";
 
-const ReportCardGeneral = () => {
+const ReportCardGeneral = ({ blog }) => {
   return (
     <div className="relative w-full sm:w-[48%] tab:w-1/3 bg-white shadow-borderPrimary/20 shadow-allSide dark:shadow-none dark:bg-backgroundDark text-white rounded-[24px] p-5 overflow-hidden flex flex-col justify-between h-[400px] sm:h-[500px]">
       {/* Title and Description */}
       <div className="h-[80%]">
         <div className="h-[60%] w-full">
           <img
-            src={BlogGraph}
+            src={blog.image}
             alt="blog image"
             className="w-full h-full rounded-t-md"
           />
@@ -20,11 +20,9 @@ const ReportCardGeneral = () => {
             textColor={"text-primary uppercase"}
             textColorDark={"text-primary"}
           >
-            Forge accuidity index
+            {blog.short_title}
           </ExtraSmallText>
-          <SmallHeading extraClass={"pt-2"}>
-            Track 60 privately held, late-stage, venture-backed, U.S. companies.
-          </SmallHeading>
+          <SmallHeading extraClass={"pt-2"}>{blog.title}</SmallHeading>
         </div>
       </div>
 
