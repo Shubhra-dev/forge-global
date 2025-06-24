@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../assets/icons/Logo.svg";
 import Facebook from "../assets/icons/Facebook.svg";
 import Instagram from "../assets/icons/Instagram.svg";
@@ -10,7 +10,45 @@ import AppleStore from "../assets/AppleStore.png";
 import BigText from "../components/BigText";
 import SmallText from "../components/SmallText";
 import Text from "../components/Text";
+import { subcribeNewletter } from "../services/newsletter";
+import { div } from "framer-motion/client";
+import SmallHeading from "../components/SmallHeading";
 function Footer() {
+  const [email, setEmail] = useState("");
+  const [subcription, setSubcription] = useState({
+    data: null,
+    isLoading: false,
+    isError: false,
+    errorMsg: "",
+  });
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setSubcription({ ...subcription, isLoading: true });
+    try {
+      const result = await subcribeNewletter(email);
+      if (result.success) {
+        setSubcription({
+          data: result.result.subscriber,
+          isLoading: false,
+          isError: false,
+        });
+        setTimeout(() => {
+          setSubcription({ ...subcription, data: null });
+        }, 3000);
+        setEmail("");
+      }
+    } catch (err) {
+      setSubcription({ ...subcription, isError: true, errorMsg: err.message });
+      setTimeout(() => {
+        setSubcription({
+          data: null,
+          isLoading: false,
+          isError: false,
+          errorMsg: "",
+        });
+      }, 3000);
+    }
+  }
   return (
     <div className="w-full bg-backgroundDark">
       <div className="w-full max-w-content m-auto">
@@ -80,15 +118,43 @@ function Footer() {
               Don’t miss the latest news
             </SmallText>
             <div className="my-5 relative">
-              <input
-                type="email"
-                name="email"
-                className="py-2 w-full pr-2 pl-5 rounded-r-full"
-                placeholder="Enter email"
-              />
-              <div className="p-2 absolute right-1 cursor-pointer top-1 z-50 rounded-full bg-secondary2">
-                <img src={Send} alt="send" />
-              </div>
+              {subcription.isError && (
+                <SmallHeading textColor={`text-textHeadingDark`}>
+                  {subcription.errorMsg}
+                </SmallHeading>
+              )}
+              {!subcription.isError && subcription.isLoading && (
+                <SmallHeading textColor={`text-textHeadingDark`}>
+                  Loading..
+                </SmallHeading>
+              )}
+              {!subcription.data &&
+                !subcription.isError &&
+                !subcription.isLoading && (
+                  <form onSubmit={handleSubmit}>
+                    <input
+                      type="email"
+                      name="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="py-2 w-full pr-2 pl-5 rounded-r-full"
+                      placeholder="Enter email"
+                    />
+                    <button
+                      type="submit"
+                      className="p-2 absolute right-1 cursor-pointer top-1 z-50 rounded-full bg-secondary2"
+                    >
+                      <img src={Send} alt="send" />
+                    </button>
+                  </form>
+                )}
+              {subcription.data &&
+                !subcription.isError &&
+                !subcription.isLoading && (
+                  <SmallHeading textColor={`text-textHeadingDark`}>
+                    {subcription.data.email} is successfully subscribed
+                  </SmallHeading>
+                )}
             </div>
             <BigText font={`font-clash`} textColor={`text-textHeadingDark`}>
               Get our app on
