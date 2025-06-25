@@ -8,3 +8,8 @@ td {
   border: 1px solid #535b6a;
   border-collapse: collapse;
 }
+
+.marker {
+  background-color: yellow;
+  font-weight: bold;
+}

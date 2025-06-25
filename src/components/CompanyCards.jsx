@@ -1,9 +1,12 @@
 import Company1 from "../assets/icons/Company1.svg";
 import SmallHeading from "./SmallHeading";
 import SmallText from "./SmallText";
-function CompanyCards({ company }) {
+function CompanyCards({ company, onClick }) {
   return (
-    <div className="w-full sm:w-auto p-[15px] bg-white dark:bg-backgroundDark border border-borderPrimary">
+    <div
+      onClick={onClick}
+      className="w-full sm:w-auto p-[15px] bg-white dark:bg-backgroundDark border border-borderPrimary"
+    >
       <div className="w-full flex items-center justify-normal gap-3">
         <img
           src={company?.thumbnail_image || Company1}

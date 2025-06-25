@@ -26,6 +26,7 @@ import About from "./pages/about/About";
 import Leadership from "./pages/leadership/Leadership";
 import LeadershipDeatil from "./pages/leadership-details/LeadershipDeatil";
 import Career from "./pages/career/Career";
+import CareerDetails from "./pages/career-details/CareerDetails";
 
 const router = createBrowserRouter([
   {
@@ -101,7 +102,7 @@ const router = createBrowserRouter([
         element: <LiquidityProgram />,
       },
       {
-        path: "/company-details",
+        path: "/company-details/:company_slug",
         element: <CompanyDetails />,
       },
       {
@@ -109,7 +110,7 @@ const router = createBrowserRouter([
         element: <InsightReports />,
       },
       {
-        path: "/insights/details",
+        path: "/insights/details/:insight_id",
         element: <InsightDetails />,
       },
       {
@@ -121,12 +122,16 @@ const router = createBrowserRouter([
         element: <Leadership />,
       },
       {
-        path: "/leadership-details",
+        path: "/leadership/:leader",
         element: <LeadershipDeatil />,
       },
       {
         path: "/career",
         element: <Career />,
+      },
+      {
+        path: "/career/job/:job_id",
+        element: <CareerDetails />,
       },
     ],
   },

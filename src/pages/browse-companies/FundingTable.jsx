@@ -11,10 +11,12 @@ import {
   getFilterVariables,
   getSubsectors,
 } from "../../services/companies";
+import { useNavigate } from "react-router-dom";
 
 const ITEMS_PER_PAGE = 24;
 
 const FundingTable = () => {
+  const navigate = useNavigate();
   const [viewStyle, setViewStyle] = useState("table"); // "table" or "grid"
   const [companies, setCompanies] = useState([]);
   const [pagination, setPagination] = useState({
@@ -232,7 +234,13 @@ const FundingTable = () => {
                 </thead>
                 <tbody>
                   {companies.map((company, index) => (
-                    <tr key={index} className="text-gray-800">
+                    <tr
+                      key={index}
+                      className="text-gray-800"
+                      onClick={() =>
+                        navigate(`/company-details/${company.slug}`)
+                      }
+                    >
                       <td className="px-4 py-2">
                         <div className="flex items-center gap-2.5">
                           <img
@@ -342,7 +350,11 @@ const FundingTable = () => {
         {!isLoading && !isError && viewStyle === "grid" && (
           <div className="grid grid-cols-1 sm:grid-cols-2 tab:grid-cols-4 gap-[20px]">
             {companies.map((company, index) => (
-              <CompanyCards key={index} company={company} />
+              <CompanyCards
+                key={index}
+                company={company}
+                onClick={() => navigate(`/company-details/${company.slug}`)}
+              />
             ))}
           </div>
         )}

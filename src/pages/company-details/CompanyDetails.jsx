@@ -11,7 +11,9 @@ import WhyForge from "./WhyForge";
 import NewsletterAndDisclosure from "../../ui/NewsletterAndDisclosure";
 import { useEffect, useState } from "react";
 import { showCompany } from "../../services/companyDetails";
+import { useParams } from "react-router-dom";
 function CompanyDetails() {
+  const { company_slug } = useParams();
   const [companyData, setCompanyData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -19,7 +21,7 @@ function CompanyDetails() {
     const fetchCompanyData = async () => {
       setIsLoading(true);
       try {
-        const data = await showCompany(`company-b`);
+        const data = await showCompany(company_slug);
         setCompanyData(data.result.company);
       } catch (error) {
         console.error("Error fetching company data:", error);
