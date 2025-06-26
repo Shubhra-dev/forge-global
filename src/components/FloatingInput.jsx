@@ -24,7 +24,7 @@ const FloatingInput = ({
         onChange={onChange}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        className={`peer w-full dark:bg-backgroundDark rounded-md px-4 pt-6 pb-2 outline-none transition-all 
+        className={`peer w-full dark:bg-backgroundDark dark:text-textSubheadingDark rounded-md px-4 pt-6 pb-2 outline-none transition-all 
           ${isActive ? "border-x border-t border-b-[3px] border-primary" : "border border-gray-400"}`}
         required={required}
       />

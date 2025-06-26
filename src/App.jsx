@@ -27,6 +27,7 @@ import Leadership from "./pages/leadership/Leadership";
 import LeadershipDeatil from "./pages/leadership-details/LeadershipDeatil";
 import Career from "./pages/career/Career";
 import CareerDetails from "./pages/career-details/CareerDetails";
+import ContactUs from "./pages/contact-us/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -132,6 +133,10 @@ const router = createBrowserRouter([
       {
         path: "/career/job/:job_id",
         element: <CareerDetails />,
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs />,
       },
     ],
   },
