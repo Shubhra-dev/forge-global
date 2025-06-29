@@ -125,15 +125,15 @@ const headerMenus = [
     subPages: [
       {
         name: "Who we are?",
-        link: "#",
+        link: "/about-company",
       },
       {
         name: "Leadership",
-        link: "#",
+        link: "/leadership",
       },
       {
         name: "FAQ's",
-        link: "#",
+        link: "/faq",
       },
 
       {
@@ -142,7 +142,7 @@ const headerMenus = [
       },
       {
         name: "Career",
-        link: "#",
+        link: "/career",
       },
     ],
   },

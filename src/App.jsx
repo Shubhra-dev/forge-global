@@ -28,6 +28,7 @@ import LeadershipDeatil from "./pages/leadership-details/LeadershipDeatil";
 import Career from "./pages/career/Career";
 import CareerDetails from "./pages/career-details/CareerDetails";
 import ContactUs from "./pages/contact-us/ContactUs";
+import FAQPage from "./pages/faq/FAQPage";
 
 const router = createBrowserRouter([
   {
@@ -137,6 +138,10 @@ const router = createBrowserRouter([
       {
         path: "/contact-us",
         element: <ContactUs />,
+      },
+      {
+        path: "/faq",
+        element: <FAQPage />,
       },
     ],
   },
