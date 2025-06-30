@@ -29,6 +29,9 @@ import Career from "./pages/career/Career";
 import CareerDetails from "./pages/career-details/CareerDetails";
 import ContactUs from "./pages/contact-us/ContactUs";
 import FAQPage from "./pages/faq/FAQPage";
+import Registration from "./pages/registration/Registration";
+import Login from "./pages/login/Login";
+import ForgotPassword from "./pages/forgot-password/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -144,6 +147,21 @@ const router = createBrowserRouter([
         element: <FAQPage />,
       },
     ],
+  },
+  {
+    element: <Registration />,
+    path: "/auth/registration",
+    // errorElement: <Error />,
+  },
+  {
+    element: <Login />,
+    path: "/auth/log-in",
+    // errorElement: <Error />,
+  },
+  {
+    element: <ForgotPassword />,
+    path: "/forgot-password",
+    // errorElement: <Error />,
   },
 ]);
 
