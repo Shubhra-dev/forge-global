@@ -3,7 +3,7 @@ import SmallHeading from "../components/SmallHeading";
 import SmallText from "../components/SmallText";
 import ExtraSmallText from "../components/ExtraSmallText";
 import Text from "../components/Text";
-function MonthlyInsightBigCard({ title, date, month }) {
+function MonthlyInsightBigCard({ title, date, month, type }) {
   return (
     <div className="p-[15px] rounded-3xl w-full tab:w-1/2 flex items-center justify-normal gap-7 border border-borderPrimary dark:border-borderPrimaryDark hover:shadow-md">
       <div className="w-[50%] sm:w-[60%]">
@@ -11,7 +11,7 @@ function MonthlyInsightBigCard({ title, date, month }) {
           extraClass={`uppercase tracking-wide`}
           fontWeight={`font-medium`}
         >
-          report
+          {type}
         </SmallText>
         <SmallHeading
           extraClass={`py-[7px]`}

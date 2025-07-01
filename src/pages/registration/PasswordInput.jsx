@@ -2,7 +2,15 @@ import { useState } from "react";
 import { PiEye, PiEyeClosed } from "react-icons/pi";
 import Text from "../../components/Text";
 
-function PasswordInput({ width, onFocus, label, name, placeholder }) {
+function PasswordInput({
+  width,
+  value,
+  setValue,
+  onFocus,
+  label,
+  name,
+  placeholder,
+}) {
   const [see, setSee] = useState(false);
   return (
     <div
@@ -12,6 +20,8 @@ function PasswordInput({ width, onFocus, label, name, placeholder }) {
       <Text fontWeight={`font-medium`}>{label}</Text>
       <input
         type={see ? "text" : "password"}
+        value={value}
+        onChange={setValue}
         name={name}
         className={`w-full mt-1 rounded-md bg-indigo-50 dark:bg-backgroundDark dark:text-textHeadingDark py-3 px-[15px]`}
         placeholder={placeholder}

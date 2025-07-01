@@ -7,10 +7,11 @@ import InvestmentDark from "../../assets/icons/TextInvestmentDark.svg";
 import { useState } from "react";
 import ForgotForm from "./ForgotForm";
 import TwoStepVerification from "./TwoStepVerification";
+import PasswordSet from "./PasswordSet";
 
 function ForgotPassword() {
   const navigate = useNavigate();
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(3);
   return (
     <div className="min-h-screen relative max-w-content m-auto dark:bg-backgroundPrimaryDark flex flex-col sm:flex-row items-center justify-normal">
       <div className="sm:hidden h-[65px] w-full shadow-xl flex items-center justify-center border-b border-b-borderPrimary">
@@ -50,6 +51,7 @@ function ForgotPassword() {
       <div className="w-full sm:ml-[35%] sm:w-[65%] p-5 tab:p-0 dark:bg-backgroundPrimaryDark">
         {page === 1 && <ForgotForm />}
         {page === 2 && <TwoStepVerification />}
+        {page == 3 && <PasswordSet />}
       </div>
     </div>
   );

@@ -75,7 +75,7 @@ export default function TwoStepVerification() {
   const handleResendCode = () => {
     console.log("Resending code...");
     // Handle resend logic here
-    setOtp(["", "", "", "", "", ""]);
+    setOtp(["", "", "", ""]);
     inputRefs.current[0]?.focus();
   };
 
@@ -84,7 +84,7 @@ export default function TwoStepVerification() {
       <div className="">
         <div className="text-center mb-8">
           <SubTitle font={`font-clash`}>Two-Step Verification</SubTitle>
-          <div className="flex items-center justify-normal gap-3 pt-[5px] w-[70%]">
+          <div className="flex items-center justify-normal gap-3 pt-[5px] tab:w-[70%]">
             <img
               src={TwoStep}
               alt="vector security sign"

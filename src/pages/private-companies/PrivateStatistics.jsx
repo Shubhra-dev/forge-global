@@ -1,7 +1,6 @@
 import Stat from "../../assets/Stat.jpg";
 import Title from "../../components/Title";
 import BigText from "../../components/BigText";
-import { div } from "framer-motion/client";
 import Text from "../../components/Text";
 function PrivateStatistics({ companyData, isError, isLoading }) {
   return (
