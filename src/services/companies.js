@@ -21,3 +21,6 @@ export async function getCompanies(
     `${BASE_URL}/companies?search=${search}&sector_id=${sector_id}&sub_sector_id=${sub_sector_id}&post_money_valuation=${post_money_valuation}&per_page=${per_page}&page=${page}&order_column=name&order_type=asc`
   );
 }
+export async function getFeaturedCompanies() {
+  return await publicGet(`${BASE_URL}/featured-companies`);
+}

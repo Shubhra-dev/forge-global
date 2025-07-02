@@ -3,6 +3,7 @@ import SmallText from "../../components/SmallText";
 import ShadowButton from "../../components/ShadowButton";
 import PasswordInput from "../registration/PasswordInput";
 import { div } from "framer-motion/client";
+import SubTitle from "../../components/SubTitle";
 function PasswordSet() {
   const [details, setDetails] = useState(false);
   const [showPasswordMessage, setShowPasswordMessage] = useState(false);
@@ -34,7 +35,10 @@ function PasswordSet() {
   console.log(showPasswordMessage);
   return (
     <div className="w-full sm:w-[90%] tab:w-[70%] laptop:w-3/5 m-auto">
-      <div className="">
+      <div>
+        <SubTitle font={`font-clash`}>Set your password</SubTitle>
+      </div>
+      <div className="mt-5">
         <PasswordInput
           width={`w-full`}
           onFocus={() => setDetails(true)}

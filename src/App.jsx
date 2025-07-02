@@ -32,6 +32,7 @@ import FAQPage from "./pages/faq/FAQPage";
 import Registration from "./pages/registration/Registration";
 import Login from "./pages/login/Login";
 import ForgotPassword from "./pages/forgot-password/ForgotPassword";
+import ProfileQuestions from "./pages/profile-questions/ProfileQuestions";
 
 const router = createBrowserRouter([
   {
@@ -161,6 +162,11 @@ const router = createBrowserRouter([
   {
     element: <ForgotPassword />,
     path: "/forgot-password",
+    // errorElement: <Error />,
+  },
+  {
+    element: <ProfileQuestions />,
+    path: "/complete-profile/questions",
     // errorElement: <Error />,
   },
 ]);

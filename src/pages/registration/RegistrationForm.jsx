@@ -57,6 +57,7 @@ function RegistrationForm() {
               bg={`bg-gradient-to-b from-orange-400 to-yellow-800 `}
               text={`Create`}
               type={`submit`}
+              rounded={`rounded-md`}
             />
           </div>
         </form>

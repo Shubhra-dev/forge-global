@@ -13,35 +13,60 @@ function AgeGroup() {
           onClick={() => setGroup("18-25")}
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
-          <input type="checkbox" name="age-group" checked={group === "18-25"} />
+          <input
+            type="checkbox"
+            name="age-group"
+            className="accent-secondary2"
+            checked={group === "18-25"}
+          />
           <SmallHeading fontWeight={`font-normal`}>18-25</SmallHeading>
         </div>
         <div
           onClick={() => setGroup("26-35")}
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
-          <input type="checkbox" name="age-group" checked={group === "26-35"} />
+          <input
+            type="checkbox"
+            name="age-group"
+            className="accent-secondary2"
+            checked={group === "26-35"}
+          />
           <SmallHeading fontWeight={`font-normal`}>26-35</SmallHeading>
         </div>
         <div
           onClick={() => setGroup("36-50")}
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
-          <input type="checkbox" name="age-group" checked={group === "36-50"} />
+          <input
+            type="checkbox"
+            name="age-group"
+            className="accent-secondary2"
+            checked={group === "36-50"}
+          />
           <SmallHeading fontWeight={`font-normal`}>36-50</SmallHeading>
         </div>
         <div
           onClick={() => setGroup("51-65")}
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
-          <input type="checkbox" name="age-group" checked={group === "51-65"} />
+          <input
+            type="checkbox"
+            name="age-group"
+            className="accent-secondary2"
+            checked={group === "51-65"}
+          />
           <SmallHeading fontWeight={`font-normal`}>51-65</SmallHeading>
         </div>
         <div
           onClick={() => setGroup("65+")}
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
-          <input type="checkbox" name="age-group" checked={group === "65+"} />
+          <input
+            type="checkbox"
+            name="age-group"
+            className="accent-secondary2"
+            checked={group === "65+"}
+          />
           <SmallHeading fontWeight={`font-normal`}>65+</SmallHeading>
         </div>
         <div className="mt-5">
@@ -49,6 +74,7 @@ function AgeGroup() {
             text={`Next`}
             bg={`bg-gradient-to-b from-orange-400 to-yellow-800 `}
             type={`submit`}
+            rounded={`rounded-md`}
           />
         </div>
       </form>

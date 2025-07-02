@@ -33,6 +33,7 @@ export default {
       fontFamily: {
         clash: ["Clash Grotesk", "sans-serif"],
         workSans: ["Work Sans", "sans-serif"],
+        cursive: ['"Dancing Script"', "cursive"],
       },
       boxShadow: {
         allSide: "0 0 10px 5px rgba(0, 0, 0, 0.5)", // Example custom shadow

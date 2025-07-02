@@ -4,17 +4,20 @@ import LogoDark from "../../assets/icons/Logo.svg";
 import LogoLight from "../../assets/icons/LogoLight.svg";
 import Investment from "../../assets/icons/TextInvestment.svg";
 import InvestmentDark from "../../assets/icons/TextInvestmentDark.svg";
-import RegistrationForm from "./RegistrationForm";
 import { useState } from "react";
-import EmailVerification from "./EmailVerification";
-import PasswordSet from "./PasswordSet";
+import AgeGroup from "./AgeGroup";
+import InvestingFor from "./InvestingFor";
+import PreTaxIncome from "./PreTaxIncome";
+import LiquidNetWorth from "./LiquidNetWorth";
+import IncomeSources from "./IncomeSources";
+import Familiarity from "./Familiarity";
 
-function Registration() {
+function ProfileQuestions() {
   const navigate = useNavigate();
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(6);
   return (
     <div
-      className={`min-h-screen w-full relative dark:bg-backgroundPrimaryDark ${page !== 4 ? "flex flex-col sm:flex-row items-center justify-normal" : ""}`}
+      className={`min-h-screen w-full relative dark:bg-backgroundPrimaryDark flex flex-col sm:flex-row items-center justify-normal`}
     >
       <div className={`max-w-content w-full mx-auto`}>
         <div className="sm:hidden h-[65px] w-full shadow-xl flex items-center justify-center border-b border-b-borderPrimary">
@@ -55,13 +58,16 @@ function Registration() {
           </div>
         </div>
         <div className="w-full sm:ml-[35%] sm:w-[65%] p-5 tab:p-0 dark:bg-backgroundPrimaryDark">
-          {page === 1 && <RegistrationForm setPage={setPage} />}
-          {page === 2 && <EmailVerification />}
-          {page === 3 && <PasswordSet />}
+          {page === 1 && <AgeGroup />}
+          {page === 2 && <InvestingFor />}
+          {page === 3 && <PreTaxIncome />}
+          {page === 4 && <LiquidNetWorth />}
+          {page === 5 && <IncomeSources />}
+          {page === 6 && <Familiarity />}
         </div>
       </div>
     </div>
   );
 }
 
-export default Registration;
+export default ProfileQuestions;

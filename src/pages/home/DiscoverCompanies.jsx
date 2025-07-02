@@ -3,7 +3,31 @@ import PrimaryButton from "../../components/PrimaryButton";
 import SectionLayout from "../../ui/SectionLayout";
 import CompanyCards from "../../components/CompanyCards";
 import MobileSlider from "../../components/MobileSlider";
+import { getFeaturedCompanies } from "../../services/companies";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 function DiscoverCompanies() {
+  const [featuredCompanies, setFeaturedCompanies] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchFeaturedCompanies = async () => {
+      setIsLoading(true);
+      try {
+        const data = await getFeaturedCompanies();
+        setFeaturedCompanies(data.result.companies);
+        console.log(data.result.companies);
+      } catch (error) {
+        console.error("Error fetching company data:", error);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchFeaturedCompanies();
+  }, []);
   return (
     <SectionLayout
       bg={`bg-backgroundTertiaryLight`}
@@ -28,18 +52,21 @@ function DiscoverCompanies() {
           </Heading>
         </div>
         <div className="hidden sm:block">
-          <PrimaryButton icon={true}>See All Companies</PrimaryButton>
+          <PrimaryButton
+            onClick={() => navigate("/browse-companies")}
+            icon={true}
+          >
+            See All Companies
+          </PrimaryButton>
         </div>
       </div>
       <div className="hidden sm:grid grid-cols-2 tab:grid-cols-4 gap-[20px]">
-        <CompanyCards />
-        <CompanyCards />
-        <CompanyCards />
-        <CompanyCards />
-        <CompanyCards />
-        <CompanyCards />
-        <CompanyCards />
-        <CompanyCards />
+        {featuredCompanies &&
+          !isLoading &&
+          !isError &&
+          featuredCompanies.map((item, index) => (
+            <CompanyCards key={index} company={item} />
+          ))}
       </div>
       <MobileSlider />
       <div className="w-max m-auto sm:hidden">

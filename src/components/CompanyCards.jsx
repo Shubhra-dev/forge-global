@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import Company1 from "../assets/icons/Company1.svg";
 import SmallHeading from "./SmallHeading";
 import SmallText from "./SmallText";
 function CompanyCards({ company, onClick }) {
+  const navigate = useNavigate();
   return (
     <div
-      onClick={onClick}
-      className="w-full sm:w-auto p-[15px] bg-white dark:bg-backgroundDark border border-borderPrimary"
+      onClick={() => navigate(`/company-details/${company.slug}`)}
+      className="w-full cursor-pointer sm:w-auto p-[15px] bg-white dark:bg-backgroundDark border border-borderPrimary"
     >
       <div className="w-full flex items-center justify-normal gap-3">
         <img

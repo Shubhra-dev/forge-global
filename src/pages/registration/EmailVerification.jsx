@@ -79,7 +79,7 @@ export default function EmailVerification() {
 
   return (
     <div className="sm:w-[90%] tab:w-[70%] laptop:w-3/5 m-auto">
-      <div className="">
+      <div>
         <div className="text-center mb-8">
           <SubTitle font={`font-clash`}>Verify your email</SubTitle>
           <Text fontWeight={`font-medium`} extraClass={`pt-[5px]`}>
