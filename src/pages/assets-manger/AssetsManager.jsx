@@ -8,7 +8,7 @@ import NewsletterAndDisclosure from "../../ui/NewsletterAndDisclosure";
 import { useEffect, useState } from "react";
 import { getAssetManager } from "../../services/pageAPI";
 function AssetsManager() {
-  const [assetManager, setAssetManager] = useState([]);
+  const [assetManager, setAssetManager] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 

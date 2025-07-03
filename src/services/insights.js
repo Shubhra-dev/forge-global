@@ -12,3 +12,6 @@ export async function allPosts(postCategoryId) {
     `${BASE_URL}/insights/posts${postCategoryId === "" ? "" : `?post_category_id=${postCategoryId}`}`
   );
 }
+export async function postDetails(slug) {
+  return await publicGet(`${BASE_URL}/posts/${slug}`);
+}

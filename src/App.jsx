@@ -116,7 +116,7 @@ const router = createBrowserRouter([
         element: <InsightReports />,
       },
       {
-        path: "/insights/details/:insight_id",
+        path: "/insights/details/:insight_slug",
         element: <InsightDetails />,
       },
       {

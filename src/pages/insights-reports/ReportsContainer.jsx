@@ -7,7 +7,9 @@ import SmallText from "../../components/SmallText";
 import Text from "../../components/Text";
 import { allPosts, postCategories } from "../../services/insights";
 import SmallHeading from "../../components/SmallHeading";
+import { useNavigate } from "react-router-dom";
 function ReportsContainer() {
+  const navigate = useNavigate();
   const [active, setActive] = useState("");
   const [categories, setCategories] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -100,7 +102,10 @@ function ReportsContainer() {
           insightData.map((item, index) => (
             <React.Fragment key={index}>
               {item.post_category.id === 1 && (
-                <div className="w-[47%] sm:w-[31%] tab:w-[23%] cursor-pointer h-[350px] rounded-md overflow-hidden border border-borderPrimary dark:border-borderPrimaryDark">
+                <div
+                  onClick={() => navigate(`/insights/details/${item.slug}`)}
+                  className="w-[47%] sm:w-[31%] tab:w-[23%] cursor-pointer h-[350px] rounded-md overflow-hidden border border-borderPrimary dark:border-borderPrimaryDark"
+                >
                   <div
                     className="w-full h-40 bg-center bg-cover p-5 flex flex-col justify-end"
                     style={{ backgroundImage: `url(${ForgeOutlook})` }}
@@ -143,7 +148,10 @@ function ReportsContainer() {
                 </div>
               )}
               {(item.post_category.id === 2 || item.post_category.id === 3) && (
-                <div className="w-[47%] sm:w-[31%] tab:w-[23%] cursor-pointer h-[350px] rounded-md overflow-hidden border border-borderPrimary dark:border-borderPrimaryDark">
+                <div
+                  onClick={() => navigate(`/insights/details/${item.slug}`)}
+                  className="w-[47%] sm:w-[31%] tab:w-[23%] cursor-pointer h-[350px] rounded-md overflow-hidden border border-borderPrimary dark:border-borderPrimaryDark"
+                >
                   <div
                     className="w-full h-40 bg-center bg-cover p-5 flex flex-col justify-end"
                     style={{ backgroundImage: `url(${MonthlyInsight})` }}
