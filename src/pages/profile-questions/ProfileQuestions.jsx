@@ -11,10 +11,27 @@ import PreTaxIncome from "./PreTaxIncome";
 import LiquidNetWorth from "./LiquidNetWorth";
 import IncomeSources from "./IncomeSources";
 import Familiarity from "./Familiarity";
+import AttituteInvesting from "./AttituteInvesting";
+import TenPercent from "./TenPercent";
+import HowLongInvesting from "./HowLongInvesting";
+import AlreadyInvested from "./AlreadyInvested";
+const initialState = {
+  age_group: "",
+  investing_for: "",
+  pre_tax_annual_income: "",
+  liquid_net_worth: "",
+  income_sources: "",
+  familiar_investing: "",
+  attitude_towards_investing: "",
+  if_lost_10_percent_a_year: "",
+  duration_time_investing_in_financial: "",
+  already_invested_financial_products: [],
+};
 
 function ProfileQuestions() {
+  const [profileInfo, setProfileInfo] = useState(initialState);
   const navigate = useNavigate();
-  const [page, setPage] = useState(6);
+  const [page, setPage] = useState(1);
   return (
     <div
       className={`min-h-screen w-full relative dark:bg-backgroundPrimaryDark flex flex-col sm:flex-row items-center justify-normal`}
@@ -58,12 +75,76 @@ function ProfileQuestions() {
           </div>
         </div>
         <div className="w-full sm:ml-[35%] sm:w-[65%] p-5 tab:p-0 dark:bg-backgroundPrimaryDark">
-          {page === 1 && <AgeGroup />}
-          {page === 2 && <InvestingFor />}
-          {page === 3 && <PreTaxIncome />}
-          {page === 4 && <LiquidNetWorth />}
-          {page === 5 && <IncomeSources />}
-          {page === 6 && <Familiarity />}
+          {page === 1 && (
+            <AgeGroup
+              group={profileInfo}
+              setGroup={setProfileInfo}
+              setPage={setPage}
+            />
+          )}
+          {page === 2 && (
+            <InvestingFor
+              investingFor={profileInfo}
+              setInvestingFor={setProfileInfo}
+              setPage={setPage}
+            />
+          )}
+          {page === 3 && (
+            <PreTaxIncome
+              preTaxIncome={profileInfo}
+              setPreTaxIncome={setProfileInfo}
+              setPage={setPage}
+            />
+          )}
+          {page === 4 && (
+            <LiquidNetWorth
+              liquidNetWorth={profileInfo}
+              setLiquidNetWorth={setProfileInfo}
+              setPage={setPage}
+            />
+          )}
+          {page === 5 && (
+            <IncomeSources
+              incomeSources={profileInfo}
+              setIncomeSources={setProfileInfo}
+              setPage={setPage}
+            />
+          )}
+          {page === 6 && (
+            <Familiarity
+              familiarity={profileInfo}
+              setFamiliarity={setProfileInfo}
+              setPage={setPage}
+            />
+          )}
+          {page === 7 && (
+            <AttituteInvesting
+              attitude={profileInfo}
+              setAttitude={setProfileInfo}
+              setPage={setPage}
+            />
+          )}
+          {page === 8 && (
+            <TenPercent
+              whatToDo={profileInfo}
+              setWhatToDo={setProfileInfo}
+              setPage={setPage}
+            />
+          )}
+          {page === 9 && (
+            <HowLongInvesting
+              length={profileInfo}
+              setLength={setProfileInfo}
+              setPage={setPage}
+            />
+          )}
+          {page === 10 && (
+            <AlreadyInvested
+              invested={profileInfo}
+              setInvested={setProfileInfo}
+              setPage={setPage}
+            />
+          )}
         </div>
       </div>
     </div>

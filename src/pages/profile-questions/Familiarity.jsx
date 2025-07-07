@@ -1,75 +1,95 @@
 import SubTitle from "../../components/SubTitle";
 import SmallHeading from "../../components/SmallHeading";
-import { useState } from "react";
 import ShadowButton from "../../components/ShadowButton";
 
-function Familiarity() {
-  const [familiarity, setFamiliarity] = useState("familiar");
+function Familiarity({ familiarity, setFamiliarity, setPage }) {
   return (
     <div className="sm:w-[90%] tab:w-[70%] laptop:w-3/5 m-auto">
       <SubTitle font={`font-clash`}>
         How familiar are you with investing?
       </SubTitle>
-      <form className="mt-5 flex flex-col items-start gap-3">
+      <form
+        className="mt-5 flex flex-col items-start gap-3"
+        onSubmit={() => setPage(7)}
+      >
         <div
-          onClick={() => setFamiliarity("familiar")}
+          onClick={() =>
+            setFamiliarity({ ...familiarity, familiar_investing: "familiar" })
+          }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="age-familiarity"
             className="accent-secondary2"
-            checked={familiarity === "familiar"}
+            checked={familiarity.familiar_investing === "familiar"}
           />
           <SmallHeading fontWeight={`font-normal`}>Familiar</SmallHeading>
         </div>
         <div
-          onClick={() => setFamiliarity("very-familiar")}
+          onClick={() =>
+            setFamiliarity({
+              ...familiarity,
+              familiar_investing: "very-familiar",
+            })
+          }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="age-familiarity"
             className="accent-secondary2"
-            checked={familiarity === "very-familiar"}
+            checked={familiarity.familiar_investing === "very-familiar"}
           />
           <SmallHeading fontWeight={`font-normal`}>Very Familiar</SmallHeading>
         </div>
         <div
-          onClick={() => setFamiliarity("not-familiar")}
+          onClick={() =>
+            setFamiliarity({
+              ...familiarity,
+              familiar_investing: "not-familiar",
+            })
+          }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="age-familiarity"
             className="accent-secondary2"
-            checked={familiarity === "not-familiar"}
+            checked={familiarity.familiar_investing === "not-familiar"}
           />
           <SmallHeading fontWeight={`font-normal`}>Not familiar</SmallHeading>
         </div>
         <div
-          onClick={() => setFamiliarity("somewhat-familiar")}
+          onClick={() =>
+            setFamiliarity({
+              ...familiarity,
+              familiar_investing: "somewhat-familiar",
+            })
+          }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="age-familiarity"
             className="accent-secondary2"
-            checked={familiarity === "somewhat-familiar"}
+            checked={familiarity.familiar_investing === "somewhat-familiar"}
           />
           <SmallHeading fontWeight={`font-normal`}>
             Somewhat Familiar
           </SmallHeading>
         </div>
         <div
-          onClick={() => setFamiliarity("new")}
+          onClick={() =>
+            setFamiliarity({ ...familiarity, familiar_investing: "new" })
+          }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="age-familiarity"
             className="accent-secondary2"
-            checked={familiarity === "new"}
+            checked={familiarity.familiar_investing === "new"}
           />
           <SmallHeading fontWeight={`font-normal`}>
             New to investing
@@ -81,6 +101,7 @@ function Familiarity() {
             text={`Previous`}
             bg={`bg-gradient-to-b from-gray-200 to-gray-400 `}
             type={`button`}
+            onClick={() => setPage(5)}
             rounded={`rounded-md`}
           />
           <ShadowButton

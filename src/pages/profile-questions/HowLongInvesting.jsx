@@ -3,108 +3,104 @@ import SmallHeading from "../../components/SmallHeading";
 import { useState } from "react";
 import ShadowButton from "../../components/ShadowButton";
 
-function InvestingFor({ investingFor, setInvestingFor, setPage }) {
+function HowLongInvesting({ length, setLength, setPage }) {
   return (
     <div className="sm:w-[90%] tab:w-[70%] laptop:w-3/5 m-auto">
-      <SubTitle font={`font-clash`}>What are you investing for?</SubTitle>
+      <SubTitle font={`font-clash`}>
+        How long have you been investing in financial products?
+      </SubTitle>
       <form
         className="mt-5 flex flex-col items-start gap-3"
-        onSubmit={() => setPage(3)}
+        onSubmit={() => setPage(10)}
       >
         <div
           onClick={() =>
-            setInvestingFor({ ...investingFor, investing_for: "retirement" })
-          }
-          className="flex items-center justify-normal gap-2 cursor-pointer"
-        >
-          <input
-            type="checkbox"
-            name="investing-for"
-            className="accent-secondary2"
-            checked={investingFor.investing_for === "retirement"}
-          />
-          <SmallHeading fontWeight={`font-normal`}>Retirement</SmallHeading>
-        </div>
-        <div
-          onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "long-term-savings",
+            setLength({
+              ...length,
+              duration_time_investing_in_financial: "less than 1 year",
             })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="how-long"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "long-term-savings"}
+            checked={
+              length.duration_time_investing_in_financial === "less than 1 year"
+            }
           />
           <SmallHeading fontWeight={`font-normal`}>
-            Long Term Savings
+            Less than 1 year
           </SmallHeading>
         </div>
         <div
           onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "general-savings",
+            setLength({
+              ...length,
+              duration_time_investing_in_financial: "1 to 2 years",
             })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="how-long"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "general-savings"}
+            checked={
+              length.duration_time_investing_in_financial === "1 to 2 years"
+            }
           />
-          <SmallHeading fontWeight={`font-normal`}>
-            General Savings
-          </SmallHeading>
+          <SmallHeading fontWeight={`font-normal`}>1 to 2 years</SmallHeading>
         </div>
         <div
           onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "major-purchase",
+            setLength({
+              ...length,
+              duration_time_investing_in_financial: "3 to 5 years",
             })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="how-long"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "major-purchase"}
+            checked={
+              length.duration_time_investing_in_financial === "3 to 5 years"
+            }
           />
-          <SmallHeading fontWeight={`font-normal`}>Major Purchase</SmallHeading>
+          <SmallHeading fontWeight={`font-normal`}>3 to 5 years</SmallHeading>
         </div>
         <div
           onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "short-term-savings",
+            setLength({
+              ...length,
+              duration_time_investing_in_financial: "more than 5 years",
             })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="how-long"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "short-term-savings"}
+            checked={
+              length.duration_time_investing_in_financial ===
+              "more than 5 years"
+            }
           />
           <SmallHeading fontWeight={`font-normal`}>
-            Short Term Savings
+            More than 5 years
           </SmallHeading>
         </div>
+
         <div className="mt-5 flex items-center justify-normal gap-5">
           <ShadowButton
             text={`Previous`}
             bg={`bg-gradient-to-b from-gray-200 to-gray-400 `}
             type={`button`}
-            onClick={() => setPage(1)}
+            onClick={() => setPage(8)}
             rounded={`rounded-md`}
           />
           <ShadowButton
@@ -119,4 +115,4 @@ function InvestingFor({ investingFor, setInvestingFor, setPage }) {
   );
 }
 
-export default InvestingFor;
+export default HowLongInvesting;

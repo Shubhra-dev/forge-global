@@ -1,79 +1,105 @@
 import SubTitle from "../../components/SubTitle";
 import SmallHeading from "../../components/SmallHeading";
-import { useState } from "react";
 import ShadowButton from "../../components/ShadowButton";
 
-function LiquidNetWorth() {
-  const [liquidNetWorth, setLiquidNetWorth] = useState("250000-500000");
+function LiquidNetWorth({ liquidNetWorth, setLiquidNetWorth, setPage }) {
   return (
     <div className="sm:w-[90%] tab:w-[70%] laptop:w-3/5 m-auto">
       <SubTitle font={`font-clash`}>What is your liquid net worth?</SubTitle>
-      <form className="mt-5 flex flex-col items-start gap-3">
+      <form
+        className="mt-5 flex flex-col items-start gap-3"
+        onSubmit={() => setPage(5)}
+      >
         <div
-          onClick={() => setLiquidNetWorth("250000-500000")}
+          onClick={() =>
+            setLiquidNetWorth({
+              ...liquidNetWorth,
+              liquid_net_worth: "250000-500000",
+            })
+          }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="liquidNetWorth"
             className="accent-secondary2"
-            checked={liquidNetWorth === "250000-500000"}
+            checked={liquidNetWorth.liquid_net_worth === "250000-500000"}
           />
           <SmallHeading fontWeight={`font-normal`}>
             BDT 250000-500000
           </SmallHeading>
         </div>
         <div
-          onClick={() => setLiquidNetWorth("500000-1000000")}
+          onClick={() =>
+            setLiquidNetWorth({
+              ...liquidNetWorth,
+              liquid_net_worth: "500000-1000000",
+            })
+          }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="liquidNetWorth"
             className="accent-secondary2"
-            checked={liquidNetWorth === "500000-1000000"}
+            checked={liquidNetWorth.liquid_net_worth === "500000-1000000"}
           />
           <SmallHeading fontWeight={`font-normal`}>
             BDT 500000-1000000
           </SmallHeading>
         </div>
         <div
-          onClick={() => setLiquidNetWorth("1000000-1500000")}
+          onClick={() =>
+            setLiquidNetWorth({
+              ...liquidNetWorth,
+              liquid_net_worth: "1000000-1500000",
+            })
+          }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="liquidNetWorth"
             className="accent-secondary2"
-            checked={liquidNetWorth === "1000000-1500000"}
+            checked={liquidNetWorth.liquid_net_worth === "1000000-1500000"}
           />
           <SmallHeading fontWeight={`font-normal`}>
             BDT 1000000-1500000
           </SmallHeading>
         </div>
         <div
-          onClick={() => setLiquidNetWorth("1500000-2000000")}
+          onClick={() =>
+            setLiquidNetWorth({
+              ...liquidNetWorth,
+              liquid_net_worth: "1500000-2000000",
+            })
+          }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="liquidNetWorth"
             className="accent-secondary2"
-            checked={liquidNetWorth === "1500000-2000000"}
+            checked={liquidNetWorth.liquid_net_worth === "1500000-2000000"}
           />
           <SmallHeading fontWeight={`font-normal`}>
             BDT 1500000-2000000
           </SmallHeading>
         </div>
         <div
-          onClick={() => setLiquidNetWorth("2000000+")}
+          onClick={() =>
+            setLiquidNetWorth({
+              ...liquidNetWorth,
+              liquid_net_worth: "2000000+",
+            })
+          }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="liquidNetWorth"
             className="accent-secondary2"
-            checked={liquidNetWorth === "2000000+"}
+            checked={liquidNetWorth.liquid_net_worth === "2000000+"}
           />
           <SmallHeading fontWeight={`font-normal`}>BDT 2000000+</SmallHeading>
         </div>
@@ -82,6 +108,7 @@ function LiquidNetWorth() {
             text={`Previous`}
             bg={`bg-gradient-to-b from-gray-200 to-gray-400 `}
             type={`button`}
+            onClick={() => setPage(3)}
             rounded={`rounded-md`}
           />
           <ShadowButton

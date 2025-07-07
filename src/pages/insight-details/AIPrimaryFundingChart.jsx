@@ -22,9 +22,12 @@ const data = [
   { quarter: "Q1 2025", value: 73 },
 ];
 
-export default function AIPrimaryFundingChart() {
+export default function AIPrimaryFundingChart({ id }) {
   return (
-    <div className="mt-10 p-4 border rounded shadow bg-white dark:bg-backgroundDark">
+    <div
+      id={id}
+      className="mt-10 p-4 border rounded shadow bg-white dark:bg-backgroundDark"
+    >
       <h2 className="text-center font-semibold text-lg mb-2">
         Primary Funding in AI Companies as a % of Primary Funding
       </h2>

@@ -3,108 +3,111 @@ import SmallHeading from "../../components/SmallHeading";
 import { useState } from "react";
 import ShadowButton from "../../components/ShadowButton";
 
-function InvestingFor({ investingFor, setInvestingFor, setPage }) {
+function TenPercent({ whatToDo, setWhatToDo, setPage }) {
   return (
     <div className="sm:w-[90%] tab:w-[70%] laptop:w-3/5 m-auto">
-      <SubTitle font={`font-clash`}>What are you investing for?</SubTitle>
+      <SubTitle font={`font-clash`}>
+        What would you do if you lost 10% a year?
+      </SubTitle>
       <form
         className="mt-5 flex flex-col items-start gap-3"
-        onSubmit={() => setPage(3)}
+        onSubmit={() => setPage(9)}
       >
         <div
           onClick={() =>
-            setInvestingFor({ ...investingFor, investing_for: "retirement" })
-          }
-          className="flex items-center justify-normal gap-2 cursor-pointer"
-        >
-          <input
-            type="checkbox"
-            name="investing-for"
-            className="accent-secondary2"
-            checked={investingFor.investing_for === "retirement"}
-          />
-          <SmallHeading fontWeight={`font-normal`}>Retirement</SmallHeading>
-        </div>
-        <div
-          onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "long-term-savings",
+            setWhatToDo({
+              ...whatToDo,
+              if_lost_10_percent_a_year: "sell everything",
             })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="ten-percent"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "long-term-savings"}
+            checked={whatToDo.if_lost_10_percent_a_year === "sell everything"}
           />
           <SmallHeading fontWeight={`font-normal`}>
-            Long Term Savings
+            Sell everything
           </SmallHeading>
         </div>
         <div
           onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "general-savings",
+            setWhatToDo({
+              ...whatToDo,
+              if_lost_10_percent_a_year: "sell partial",
             })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="ten-percent"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "general-savings"}
+            checked={whatToDo.if_lost_10_percent_a_year === "sell partial"}
           />
           <SmallHeading fontWeight={`font-normal`}>
-            General Savings
+            Sell part of my holdings
           </SmallHeading>
         </div>
         <div
           onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "major-purchase",
-            })
+            setWhatToDo({ ...whatToDo, if_lost_10_percent_a_year: "switch" })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="ten-percent"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "major-purchase"}
+            checked={whatToDo.if_lost_10_percent_a_year === "switch"}
           />
-          <SmallHeading fontWeight={`font-normal`}>Major Purchase</SmallHeading>
+          <SmallHeading fontWeight={`font-normal`}>
+            Switch to a conservative portfolio
+          </SmallHeading>
         </div>
         <div
           onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "short-term-savings",
+            setWhatToDo({
+              ...whatToDo,
+              if_lost_10_percent_a_year: "do nothing",
             })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="ten-percent"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "short-term-savings"}
+            checked={whatToDo.if_lost_10_percent_a_year === "do nothing"}
           />
-          <SmallHeading fontWeight={`font-normal`}>
-            Short Term Savings
-          </SmallHeading>
+          <SmallHeading fontWeight={`font-normal`}>Do nothing</SmallHeading>
         </div>
+        <div
+          onClick={() =>
+            setWhatToDo({
+              ...whatToDo,
+              if_lost_10_percent_a_year: "invest more",
+            })
+          }
+          className="flex items-center justify-normal gap-2 cursor-pointer"
+        >
+          <input
+            type="checkbox"
+            name="ten-percent"
+            className="accent-secondary2"
+            checked={whatToDo.if_lost_10_percent_a_year === "invest more"}
+          />
+          <SmallHeading fontWeight={`font-normal`}>Invest more</SmallHeading>
+        </div>
+
         <div className="mt-5 flex items-center justify-normal gap-5">
           <ShadowButton
             text={`Previous`}
             bg={`bg-gradient-to-b from-gray-200 to-gray-400 `}
             type={`button`}
-            onClick={() => setPage(1)}
+            onClick={() => setPage(7)}
             rounded={`rounded-md`}
           />
           <ShadowButton
@@ -119,4 +122,4 @@ function InvestingFor({ investingFor, setInvestingFor, setPage }) {
   );
 }
 
-export default InvestingFor;
+export default TenPercent;

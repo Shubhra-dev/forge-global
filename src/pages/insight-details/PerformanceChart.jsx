@@ -1,4 +1,3 @@
-import React from "react";
 import {
   LineChart,
   Line,
@@ -9,78 +8,71 @@ import {
   Legend,
   CartesianGrid,
 } from "recharts";
+import BigText from "../../components/BigText";
 
-const data = [
-  { date: "Feb 1", FPMI: 0, FAPMI: 0, SPY: 0 },
-  { date: "Feb 15", FPMI: 5, FAPMI: 3, SPY: 2 },
-  { date: "Feb 25", FPMI: 6, FAPMI: 5, SPY: 0 },
-  { date: "Mar 5", FPMI: 20, FAPMI: 6, SPY: -2 },
-  { date: "Mar 15", FPMI: 33.5, FAPMI: 9.4, SPY: -5 },
-  { date: "Mar 25", FPMI: 33.5, FAPMI: 9.4, SPY: -8.0 },
-  { date: "Apr 15", FPMI: 33.5, FAPMI: 9.4, SPY: -8.0 },
-];
+function transformChartData(labels, series) {
+  return labels.map((label, idx) => {
+    const row = { label }; // x-axis label
+    series.forEach((s) => {
+      row[s.name] = parseFloat(s.values[idx]); // convert to number
+    });
+    return row;
+  });
+}
 
-const formatXAxis = (tick, index, allTicks) => {
-  const currentMonth = tick.split(" ")[0];
-  const previousMonth = index > 0 ? allTicks[index - 1].split(" ")[0] : null;
-  return currentMonth !== previousMonth ? currentMonth : "";
-};
+export default function PerformanceChart({ content, id }) {
+  if (
+    !content?.data?.labels ||
+    !content?.data?.series ||
+    content.data.series.length === 0
+  ) {
+    return <div>No chart data available.</div>;
+  }
 
-export default function PerformanceChart() {
+  const chartData = transformChartData(
+    content.data.labels,
+    content.data.series
+  );
+
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 border rounded shadow bg-white">
-      <h2 className="text-lg font-semibold text-center mb-4">
-        Performance of Forge Private Market Index (FPMI) vs. SPY vs. Forge
-        Accuidity Private Market Index (FAPMI)
-      </h2>
-      <ResponsiveContainer width="100%" height={400}>
-        <LineChart
-          data={data}
-          margin={{ top: 10, right: 40, left: 0, bottom: 10 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis
-            dataKey="date"
-            tickFormatter={(tick, index) =>
-              formatXAxis(
-                tick,
-                index,
-                data.map((d) => d.date)
-              )
-            }
-          />
-          <YAxis domain={[-20, 40]} tickFormatter={(val) => `${val}%`} />
-          <Tooltip formatter={(val) => `${val}%`} />
-          <Legend />
-          <Line
-            type="stepAfter"
-            dataKey="FPMI"
-            stroke="#F97316"
-            strokeWidth={3}
-            dot={false}
-            name="FPMI"
-          />
-          <Line
-            type="stepAfter"
-            dataKey="FAPMI"
-            stroke="#D946EF"
-            strokeWidth={3}
-            dot={false}
-            name="FAPMI"
-          />
-          <Line
-            type="stepAfter"
-            dataKey="SPY"
-            stroke="#A855F7"
-            strokeWidth={3}
-            dot={false}
-            name="SPY"
-          />
-        </LineChart>
-      </ResponsiveContainer>
-      <p className="text-right text-xs text-gray-500 mt-2">
-        Forge Data as of 4/15/25
-      </p>
+    <div className="w-full" id={id}>
+      <BigText
+        fontWeight={`font-semibold`}
+        textColor={`text-textHeading`}
+        textColorDark={`dark:text-textHeadingDark`}
+        extraClass={`uppercase`}
+      >
+        {content.title}
+      </BigText>
+      <div className="w-full mt-3 mx-auto p-4 border rounded shadow">
+        <ResponsiveContainer width="100%" height={400}>
+          <LineChart
+            data={chartData}
+            margin={{ top: 10, right: 40, left: 0, bottom: 10 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="label" />
+            <YAxis tickFormatter={(val) => `${val}`} />
+            <Tooltip formatter={(val) => `${val}`} />
+            <Legend />
+
+            {content.data.series.map((s, index) => (
+              <Line
+                key={s.name}
+                type="monotone"
+                dataKey={s.name}
+                stroke={s.color || ["#F97316", "#D946EF", "#A855F7"][index % 3]}
+                strokeWidth={3}
+                dot={false}
+                name={s.name}
+              />
+            ))}
+          </LineChart>
+        </ResponsiveContainer>
+        <p className="text-right text-xs text-gray-500 mt-2">
+          Forge Data as of {content.updated_at || "N/A"}
+        </p>
+      </div>
     </div>
   );
 }

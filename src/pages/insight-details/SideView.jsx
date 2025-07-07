@@ -1,6 +1,11 @@
 import SmallHeading from "../../components/SmallHeading";
 import ExtraSmallText from "../../components/ExtraSmallText";
-function SideView() {
+function SideView({ contents }) {
+  function handleClick(id) {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }
   return (
     <div className="hidden tab:block w-[30%]">
       <div className="w-full rounded-[20px] shadow-md p-5 bg-backgroundPrimary dark:bg-backgroundPrimaryDark">
@@ -33,20 +38,23 @@ function SideView() {
       <div className="mt-10">
         <SmallHeading fontWeight={`font-bold`}>Jump to sections</SmallHeading>
         <div className="mt-6">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <div
-              key={item}
-              className="cursor-pointer first:border-y border-b border-y-borderPrimary py-3 pr-10"
-            >
-              <ExtraSmallText
-                textColor={`text-textParagraph`}
-                textColorDark={`text-textParagraphDark`}
-              >
-                The IPO market hit crosswinds in late-March as public market
-                vola...
-              </ExtraSmallText>
-            </div>
-          ))}
+          {contents.map(
+            (item, index) =>
+              item.title !== "" && (
+                <div
+                  onClick={() => handleClick(index)}
+                  key={index}
+                  className="cursor-pointer first:border-y border-b border-y-borderPrimary py-3 pr-10"
+                >
+                  <ExtraSmallText
+                    textColor={`text-textParagraph`}
+                    textColorDark={`text-textParagraphDark`}
+                  >
+                    {item.title}
+                  </ExtraSmallText>
+                </div>
+              )
+          )}
         </div>
       </div>
     </div>

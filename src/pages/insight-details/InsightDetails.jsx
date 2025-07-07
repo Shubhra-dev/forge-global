@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { postDetails } from "../../services/insights";
 import SmallHeading from "../../components/SmallHeading";
 import ContentContainer from "./ContentContainer";
+import NewsletterAndDisclosure from "../../ui/NewsletterAndDisclosure";
 function InsightDetails() {
   const { insight_slug } = useParams();
   console.log(insight_slug);
@@ -43,6 +44,7 @@ function InsightDetails() {
             author={insightDetail.author}
           />
           <ContentContainer contents={insightDetail.contents} />
+          <NewsletterAndDisclosure />
         </>
       )}
     </>

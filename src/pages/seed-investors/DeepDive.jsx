@@ -6,8 +6,10 @@ import SubHeading from "../../components/SubHeading";
 import SmallText from "../../components/SmallText";
 import Text from "../../components/Text";
 import MonthlyInsightBigCard from "../../components/MonthlyInsightBigCard";
+import { useNavigate } from "react-router-dom";
 
 function DeepDive({ data, isLoaing, isError = true }) {
+  const navigate = useNavigate();
   return (
     <SectionLayout>
       <Heading align={`text-center sm:text-left`} font={`font-clash`}>
@@ -28,7 +30,10 @@ function DeepDive({ data, isLoaing, isError = true }) {
       )}
       {data && !isError && !isLoaing && (
         <>
-          <div className="py-7 pb-12 w-full flex flex-col sm:flex-row items-center justify-normal gap-10 tab:gap-16">
+          <div
+            onClick={() => navigate(`/insights/details/${data[0].slug}`)}
+            className="cursor-pointer py-7 pb-12 w-full flex flex-col sm:flex-row items-center justify-normal gap-10 tab:gap-16"
+          >
             <div
               className="w-full sm:w-[55%] h-72 bg-center bg-cover bg-no-repeat rounded-tr-[40px] sm:rounded-tr-none sm:rounded-bl-[40px] px-10 py-7 flex flex-col justify-end items-start"
               style={{ backgroundImage: `url(${BlackBg})` }}
@@ -57,9 +62,13 @@ function DeepDive({ data, isLoaing, isError = true }) {
               <Text extraClass={`pt-5`}>{data[0].excerpt}</Text>
             </div>
           </div>
-          <div className="w-full flex flex-col tab:flex-row items-center justify-normal gap-5">
+          <div
+            onClick={() => {}}
+            className="w-full flex flex-col tab:flex-row items-center justify-normal gap-5"
+          >
             {data.slice(1).map((item, index) => (
               <MonthlyInsightBigCard
+                onClick={() => {}}
                 key={index}
                 title={item.title}
                 date={item.date}

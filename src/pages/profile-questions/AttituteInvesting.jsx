@@ -1,110 +1,110 @@
 import SubTitle from "../../components/SubTitle";
 import SmallHeading from "../../components/SmallHeading";
-import { useState } from "react";
 import ShadowButton from "../../components/ShadowButton";
 
-function InvestingFor({ investingFor, setInvestingFor, setPage }) {
+function AttituteInvesting({ attitude, setAttitude, setPage }) {
   return (
     <div className="sm:w-[90%] tab:w-[70%] laptop:w-3/5 m-auto">
-      <SubTitle font={`font-clash`}>What are you investing for?</SubTitle>
+      <SubTitle font={`font-clash`}>
+        Describe your attitude towards investing
+      </SubTitle>
       <form
         className="mt-5 flex flex-col items-start gap-3"
-        onSubmit={() => setPage(3)}
+        onSubmit={() => setPage(8)}
       >
         <div
           onClick={() =>
-            setInvestingFor({ ...investingFor, investing_for: "retirement" })
-          }
-          className="flex items-center justify-normal gap-2 cursor-pointer"
-        >
-          <input
-            type="checkbox"
-            name="investing-for"
-            className="accent-secondary2"
-            checked={investingFor.investing_for === "retirement"}
-          />
-          <SmallHeading fontWeight={`font-normal`}>Retirement</SmallHeading>
-        </div>
-        <div
-          onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "long-term-savings",
+            setAttitude({
+              ...attitude,
+              attitude_towards_investing: "not comfortable with losses",
             })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="attitude"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "long-term-savings"}
+            checked={
+              attitude.attitude_towards_investing ===
+              "not comfortable with losses"
+            }
           />
           <SmallHeading fontWeight={`font-normal`}>
-            Long Term Savings
+            I am not comfortable with losses
           </SmallHeading>
         </div>
         <div
           onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "general-savings",
+            setAttitude({
+              ...attitude,
+              attitude_towards_investing: "do no mind taking risk",
             })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="attitude"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "general-savings"}
+            checked={
+              attitude.attitude_towards_investing === "do no mind taking risk"
+            }
           />
           <SmallHeading fontWeight={`font-normal`}>
-            General Savings
+            I do no mind taking risk
           </SmallHeading>
         </div>
         <div
           onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "major-purchase",
+            setAttitude({
+              ...attitude,
+              attitude_towards_investing: "some risk is okay",
             })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="attitude"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "major-purchase"}
+            checked={
+              attitude.attitude_towards_investing === "some risk is okay"
+            }
           />
-          <SmallHeading fontWeight={`font-normal`}>Major Purchase</SmallHeading>
+          <SmallHeading fontWeight={`font-normal`}>
+            I am aiming for long growth, some risk is okay
+          </SmallHeading>
         </div>
         <div
           onClick={() =>
-            setInvestingFor({
-              ...investingFor,
-              investing_for: "short-term-savings",
+            setAttitude({
+              ...attitude,
+              attitude_towards_investing: "short term losses are okay",
             })
           }
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
-            name="investing-for"
+            name="attitude"
             className="accent-secondary2"
-            checked={investingFor.investing_for === "short-term-savings"}
+            checked={
+              attitude.attitude_towards_investing ===
+              "short term losses are okay"
+            }
           />
           <SmallHeading fontWeight={`font-normal`}>
-            Short Term Savings
+            Short term losses are okay if it means better long term growth
           </SmallHeading>
         </div>
+
         <div className="mt-5 flex items-center justify-normal gap-5">
           <ShadowButton
             text={`Previous`}
             bg={`bg-gradient-to-b from-gray-200 to-gray-400 `}
             type={`button`}
-            onClick={() => setPage(1)}
+            onClick={() => setPage(6)}
             rounded={`rounded-md`}
           />
           <ShadowButton
@@ -119,4 +119,4 @@ function InvestingFor({ investingFor, setInvestingFor, setPage }) {
   );
 }
 
-export default InvestingFor;
+export default AttituteInvesting;

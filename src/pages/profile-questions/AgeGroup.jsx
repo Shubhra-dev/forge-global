@@ -1,71 +1,72 @@
 import SubTitle from "../../components/SubTitle";
 import SmallHeading from "../../components/SmallHeading";
-import { useState } from "react";
 import ShadowButton from "../../components/ShadowButton";
 
-function AgeGroup() {
-  const [group, setGroup] = useState("18-25");
+function AgeGroup({ group, setGroup, setPage }) {
   return (
     <div className="sm:w-[90%] tab:w-[70%] laptop:w-3/5 m-auto">
       <SubTitle font={`font-clash`}>What is your age group?</SubTitle>
-      <form className="mt-5 flex flex-col items-start gap-3">
+      <form
+        className="mt-5 flex flex-col items-start gap-3"
+        onSubmit={() => setPage(2)}
+      >
         <div
-          onClick={() => setGroup("18-25")}
+          onClick={() => setGroup({ ...group, age_group: "18-25" })}
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="age-group"
             className="accent-secondary2"
-            checked={group === "18-25"}
+            checked={group.age_group === "18-25"}
           />
           <SmallHeading fontWeight={`font-normal`}>18-25</SmallHeading>
         </div>
         <div
-          onClick={() => setGroup("26-35")}
+          onClick={() => setGroup({ ...group, age_group: "26-35" })}
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="age-group"
             className="accent-secondary2"
-            checked={group === "26-35"}
+            checked={group.age_group === "26-35"}
           />
           <SmallHeading fontWeight={`font-normal`}>26-35</SmallHeading>
         </div>
         <div
-          onClick={() => setGroup("36-50")}
+          onClick={() => setGroup({ ...group, age_group: "36-50" })}
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="age-group"
             className="accent-secondary2"
-            checked={group === "36-50"}
+            checked={group.age_group === "36-50"}
           />
           <SmallHeading fontWeight={`font-normal`}>36-50</SmallHeading>
         </div>
         <div
-          onClick={() => setGroup("51-65")}
+          onClick={() => setGroup({ ...group, age_group: "51-65" })}
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="age-group"
             className="accent-secondary2"
-            checked={group === "51-65"}
+            checked={group.age_group === "51-65"}
           />
           <SmallHeading fontWeight={`font-normal`}>51-65</SmallHeading>
         </div>
         <div
-          onClick={() => setGroup("65+")}
+          onClick={() => setGroup({ ...group, age_group: "65+" })}
           className="flex items-center justify-normal gap-2 cursor-pointer"
         >
           <input
             type="checkbox"
             name="age-group"
             className="accent-secondary2"
-            checked={group === "65+"}
+            checked={group.age_group === "65+"}
           />
           <SmallHeading fontWeight={`font-normal`}>65+</SmallHeading>
         </div>
