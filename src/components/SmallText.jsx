@@ -8,9 +8,11 @@ function SmallText({
   fontWeight,
   extraClass,
   onClick,
+  title,
 }) {
   return (
     <p
+      title={title}
       onClick={onClick ? onClick : () => {}}
       className={`text-sm ${fontWeight ? fontWeight : "font-normal"} ${
         font ? font : "font-workSans"
