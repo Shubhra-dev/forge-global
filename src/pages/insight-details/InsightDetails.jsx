@@ -41,6 +41,7 @@ function InsightDetails() {
             title={insightDetail.title}
             date={insightDetail.date}
             quarter={insightDetail.quarter}
+            quarterYear={insightDetail.quarter_year}
             author={insightDetail.author}
           />
           <ContentContainer contents={insightDetail.contents} />

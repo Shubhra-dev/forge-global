@@ -33,7 +33,7 @@ export default function PieDistributionChart({
   }));
 
   return (
-    <div id={id} className="mt-10 p-4 bg-white rounded-2xl shadow-md w-full">
+    <div id={id} className="mt-10 p-4 w-full">
       <BigText
         fontWeight={`font-semibold`}
         textColor={`text-textHeading`}

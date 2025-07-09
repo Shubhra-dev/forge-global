@@ -36,13 +36,13 @@ function AssetsManager() {
       <DeepDive
         isLoaing={isLoading}
         isError={isError}
-        data={assetManager.private_market_trends}
+        data={assetManager?.private_market_trends}
       />
       <DiscoverCompanies />
       <NewsletterAndDisclosure
         newsletter={false}
-        disclosure={assetManager.asset_manager_page_disclosures}
-        legalNotice={assetManager.asset_manager_page_legal_notices}
+        disclosure={assetManager?.disclosures}
+        legalNotice={assetManager?.legal_notices}
       />
     </>
   );

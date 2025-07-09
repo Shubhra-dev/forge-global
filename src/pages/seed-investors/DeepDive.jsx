@@ -39,14 +39,14 @@ function DeepDive({ data, isLoaing, isError = true }) {
             <div
               className="w-full sm:w-[55%] h-72 bg-center bg-cover bg-no-repeat rounded-tr-[40px] sm:rounded-tr-none sm:rounded-bl-[40px] px-10 py-7 flex flex-col justify-end items-start"
               style={{
-                backgroundImage: `url(${data[0].post_category.name === "Forge Investment Outlook" ? BlackBg : MonthlyInsight})`,
+                backgroundImage: `url(${data[0].post_category === "Forge Investment Outlook" ? BlackBg : MonthlyInsight})`,
               }}
             >
               <div className="w-32 h-1 bg-secondary2 rounded-full"></div>
               <Heading
                 font={`font-clash`}
                 textColor={
-                  data[0].post_category.name === "Forge Investment Outlook"
+                  data[0].post_category === "Forge Investment Outlook"
                     ? `text-white`
                     : `text-textHeading`
                 }
@@ -56,20 +56,20 @@ function DeepDive({ data, isLoaing, isError = true }) {
                 leading={`leading-normal sm:leading-9 tab:leading-10`}
                 extraClass={`pt-3 pb-4 sm:w-3/4`}
               >
-                {data[0].post_category.name === "Forge Investment Outlook"
+                {data[0].post_category === "Forge Investment Outlook"
                   ? "Forge Investment Outlook"
                   : "Private Market Updates"}
               </Heading>
               <SmallHeading
                 textColorDark={" "}
                 textColor={
-                  data[0].post_category.name === "Forge Investment Outlook"
+                  data[0].post_category === "Forge Investment Outlook"
                     ? `text-white`
                     : `text-textHeading`
                 }
               >
-                {data[0].post_category.name === "Forge Investment Outlook"
-                  ? `${data[0].quarter} 2025"`
+                {data[0].post_category === "Forge Investment Outlook"
+                  ? `${data[0].quarter} ${data[0].quarter_year}`
                   : data[0].date}
               </SmallHeading>
             </div>
@@ -87,7 +87,7 @@ function DeepDive({ data, isLoaing, isError = true }) {
           <div className="w-full flex flex-col tab:flex-row items-center justify-normal gap-5">
             {data.slice(1).map((item, index) => {
               // Use conditional rendering with proper return statements
-              if (item.post_category.name !== "Forge Investment Outlook") {
+              if (item.post_category !== "Forge Investment Outlook") {
                 return (
                   <MonthlyInsightBigCard
                     onClick={() => navigate(`/insights/details/${item.slug}`)}
@@ -103,14 +103,14 @@ function DeepDive({ data, isLoaing, isError = true }) {
                 );
               }
 
-              if (item.post_category.name === "Forge Investment Outlook") {
+              if (item.post_category === "Forge Investment Outlook") {
                 return (
                   <ForgeOutlook
                     key={index}
                     onClick={() => navigate(`/insights/details/${item.slug}`)}
                     title={item.title}
                     date={item.date}
-                    quarter={item.quarter}
+                    quarter={`${item.quarter} ${item.quarter_year}`}
                     type={item.type}
                   />
                 );

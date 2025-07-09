@@ -6,7 +6,14 @@ import SubTitle from "../../components/SubTitle";
 import Facebook from "../../assets/icons/Facebook2.svg";
 import LinkedIn from "../../assets/icons/LinkedIn2.svg";
 import X from "../../assets/icons/X2.svg";
-function InsightDetailHero({ category, title, author, date, quarter }) {
+function InsightDetailHero({
+  category,
+  title,
+  author,
+  date,
+  quarter,
+  quarterYear,
+}) {
   if (category !== "Forge Investment Outlook") {
     return (
       <div
@@ -88,7 +95,7 @@ function InsightDetailHero({ category, title, author, date, quarter }) {
                 fontWeight={`font-medium`}
                 textColorDark={` `}
               >
-                {quarter} 2025
+                {quarter} {quarterYear}
               </SmallHeading>
             </div>
             <div className="w-full bg-black/60 rounded-t-md pt-7 pb-10 px-4 flex items-center justify-between">
