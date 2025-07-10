@@ -12,13 +12,40 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { MdOutlineSettings } from "react-icons/md";
 import { TbLogout2 } from "react-icons/tb";
 import RightIndent from "../../assets/icons/RightIndent.svg";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { CgClose } from "react-icons/cg";
 
 function DashboardLayout({ children }) {
   const [activeTab, setActiveTab] = useState(1);
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+  const sidebarRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setSidebarIsOpen(false); // Call the function passed via props
+      }
+    };
+
+    // Attach event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup event listener on unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setSidebarIsOpen]);
   return (
-    <div className="bg-white w-full my-2 tab:my-5 max-w-content relative flex items-start justify-normal gap-5">
-      <div className="hidden  tab:block fixed top-5 rounded-md bg-gray-50 w-1/4 z-10 tab:w-1/5 h-screen no-scrollbar overflow-y-scroll p-2.5 pb-10">
+    <div className="bg-white w-full mt-2 tab:my-5 max-w-content relative flex items-start justify-normal sm:gap-5">
+      <div
+        ref={sidebarRef}
+        className={`${sidebarIsOpen ? "" : "hidden"} transition-all duration-300  tab:block fixed tab:top-5 rounded-md bg-gray-50 shadow-xl w-[30%] z-10 tab:w-1/5 h-screen no-scrollbar overflow-y-scroll p-2.5 pb-10`}
+      >
+        <div className="tab:hidden w-full flex items-center justify-end py-2">
+          <CgClose
+            onClick={() => setSidebarIsOpen(false)}
+            className="rounded-full border border-borderPrimary text-xl hover:bg-red-950 hover:text-white cursor-pointer p-1"
+          />
+        </div>
         <div className="flex items-center justify-center gap-2">
           <div
             onClick={() => navigate(`/`)}
@@ -156,8 +183,15 @@ function DashboardLayout({ children }) {
           </div>
         </div>
       </div>
-      <div className="fixed w-[10%] h-screen overflow-y-scroll tab:hidden bg-gray-50 rounded-md">
-        <img src={RightIndent} alt="menu" className="m-auto mt-3" />
+      <div
+        className={`hidden ${sidebarIsOpen ? "sm:hidden" : "sm:block fixed"} w-[10%] h-screen overflow-y-scroll tab:hidden bg-gray-50 rounded-md`}
+      >
+        <img
+          src={RightIndent}
+          alt="menu"
+          className="m-auto mt-3"
+          onClick={() => setSidebarIsOpen(true)}
+        />
         <div className="px-1 pt-1.5  mt-5">
           <div
             className={`${activeTab == 1 ? "bg-gradient-to-b from-primary to-secondary" : "bg-transparent"} rounded-md p-3`}
@@ -203,8 +237,8 @@ function DashboardLayout({ children }) {
           </div>
         </div>
       </div>
-      <div className="w-[10%]  tab:w-1/5"></div>
-      <div className="tab:w-4/5">{children}</div>
+      <div className="hidden sm:block sm:w-[10%] tab:w-1/5"></div>
+      <div className="w-full px-4 tab:w-4/5">{children}</div>
     </div>
   );
 }
