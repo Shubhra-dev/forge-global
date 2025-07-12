@@ -19,6 +19,7 @@ function ForgePro() {
       try {
         const data = await getForgePro();
         setForgePro(data.result.forge_pro);
+        console.log("kire");
       } catch (error) {
         console.error("Error fetching company data:", error);
         setIsError(true);
@@ -34,7 +35,11 @@ function ForgePro() {
       <ImageBgSection />
       <PrivateMarket />
       <WhoWeServeSection />
-      <ReportCardSection />
+      <ReportCardSection
+        post={forgePro?.post}
+        isError={isError}
+        isLoading={isLoading}
+      />
       <NewsletterAndDisclosure
         newsletter={false}
         legalNotice={forgePro?.legal_notices}

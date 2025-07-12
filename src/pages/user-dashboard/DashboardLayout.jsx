@@ -6,6 +6,7 @@ import BigText from "../../components/BigText";
 import ExtraSmallText from "../../components/ExtraSmallText";
 import SmallText from "../../components/SmallText";
 import { FiLayers } from "react-icons/fi";
+import Profile from "../../assets/Profile.jpg";
 import SmallHeading from "../../components/SmallHeading";
 import { BiBuildings, BiBuoy } from "react-icons/bi";
 import { IoBriefcaseOutline } from "react-icons/io5";
@@ -14,11 +15,17 @@ import { TbLogout2 } from "react-icons/tb";
 import RightIndent from "../../assets/icons/RightIndent.svg";
 import { useEffect, useRef, useState } from "react";
 import { CgClose } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
+import { Bell } from "lucide-react";
+import { BiSearch } from "react-icons/bi";
 
-function DashboardLayout({ children }) {
-  const [activeTab, setActiveTab] = useState(1);
+function DashboardLayout({ children, activeTab = 1 }) {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const sidebarRef = useRef(null);
+  const navigate = useNavigate();
+
+  const shortEmail = (email) =>
+    email.length > 15 ? email.slice(0, 20) + ".." : email;
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
@@ -35,10 +42,10 @@ function DashboardLayout({ children }) {
     };
   }, [setSidebarIsOpen]);
   return (
-    <div className="bg-white w-full mt-2 tab:my-5 max-w-content relative flex items-start justify-normal sm:gap-5">
+    <div className="bg-white w-full mt-2 tab:my-5 max-w-content m-auto relative flex items-start justify-normal sm:gap-5">
       <div
         ref={sidebarRef}
-        className={`${sidebarIsOpen ? "" : "hidden"} transition-all duration-300  tab:block fixed tab:top-5 rounded-md bg-gray-50 shadow-xl w-[30%] z-10 tab:w-1/5 h-screen no-scrollbar overflow-y-scroll p-2.5 pb-10`}
+        className={`${sidebarIsOpen ? "translate-x-0 opacity-100 pointer-events-auto" : "-translate-x-full opacity-0 pointer-events-none tab:translate-x-0 tab:opacity-100 tab:pointer-events-auto"} transform transition-transform duration-300 ease-in-out ${sidebarIsOpen ? "translate-x-0" : "-translate-x-full"} tab:translate-x-0 tab:block absolute tab:top-5 rounded-md bg-gray-50 shadow-xl w-3/5 sm:w-[35%] z-10 tab:w-1/5 h-screen no-scrollbar overflow-y-scroll p-2.5 pb-10 `}
       >
         <div className="tab:hidden w-full flex items-center justify-end py-2">
           <CgClose
@@ -238,7 +245,81 @@ function DashboardLayout({ children }) {
         </div>
       </div>
       <div className="hidden sm:block sm:w-[10%] tab:w-1/5"></div>
-      <div className="w-full px-4 tab:w-4/5">{children}</div>
+      <div className="w-full px-4 tab:w-4/5">
+        <div className="w-full rounded-md bg-gray-50 sm:px-5 py-2.5 flex justify-between items-center">
+          <div className="hidden sm:block relative rounded-full">
+            <input
+              type="text"
+              name="search"
+              placeholder="Hinted Search Text"
+              className="px-7 py-3 rounded-full w-72"
+            />
+            <BiSearch className="absolute right-3 top-[35%] cursor-pointer text-xl" />
+          </div>
+          <div className="flex items-center justify-normal gap-3">
+            <div className="p-4">
+              <Bell className="cursor-pointer" />
+            </div>
+            <div className="flex items-center justify-normal gap-3">
+              <img
+                src={Profile}
+                alt="profile image"
+                className="w-14 h-14 rounded-full"
+              />
+              <div className="hidden sm:block">
+                <SmallHeading>Shahriar Zaman</SmallHeading>
+                <SmallText title={`shahriarpranto.oscorp@gmail.com`}>
+                  {shortEmail("shahriarpranto.oscorp@gmail.com")}
+                </SmallText>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className={`sm:hidden fixed top-0 left-0 w-full rounded-md bg-gray-50 px-3 sm:px-5 py-2.5 flex justify-between items-center`}
+        >
+          <img
+            src={RightIndent}
+            alt="menu"
+            className=""
+            onClick={() => setSidebarIsOpen(true)}
+          />
+          <div className="flex items-center justify-center gap-2">
+            <div
+              onClick={() => navigate(`/`)}
+              className="flex items-center justify-center gap-2"
+            >
+              <img src={LogoDark} alt="logo" className="hidden dark:block" />
+              <img src={LogoLight} alt="logo" className="dark:hidden" />
+              <img
+                src={InvestmentDark}
+                alt="logo"
+                className="hidden dark:block"
+              />
+              <img src={Investment} alt="logo" className="dark:hidden" />
+            </div>
+          </div>
+          <div className="flex items-center justify-normal gap-3">
+            <div className="p-4">
+              <Bell className="cursor-pointer" />
+            </div>
+            <div className="flex items-center justify-normal gap-3">
+              <img
+                src={Profile}
+                alt="profile image"
+                className="w-14 h-14 rounded-full"
+              />
+              <div className="hidden sm:block">
+                <SmallHeading>Shahriar Zaman</SmallHeading>
+                <SmallText title={`shahriarpranto.oscorp@gmail.com`}>
+                  {shortEmail("shahriarpranto.oscorp@gmail.com")}
+                </SmallText>
+              </div>
+            </div>
+          </div>
+        </div>
+        {children}
+      </div>
     </div>
   );
 }
